@@ -166,6 +166,7 @@ set foldlevel=100
 " 用空格键来开关折叠
 set foldenable
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+set foldlevel=100
 
 "程序每次产生一个文件名.
 set grepprg=grep\ -nH\ $*
@@ -505,8 +506,16 @@ let g:tagbar_type_tex = {
     \ 'sort'    : 0
 \ }
 
-
-
+let g:tagbar_type_nc = {
+    \ 'ctagstype' : 'nesc',
+    \ 'kinds'     : [
+        \ 'd:definition',
+        \ 'f:function',
+        \ 'c:command',
+        \ 'a:task',
+        \ 'e:event'
+    \ ],
+\ }
 
 "==========private info==============
 source ~/.vim/private.vim

@@ -1,4 +1,5 @@
 private.vim
+.netrwhist
 *.back
 *.swp
 *.un~
