@@ -162,7 +162,7 @@ set novisualbell
 "设置语法折叠
 set foldmethod=syntax
 set foldcolumn=0 "设置折叠区域的宽度
-
+set foldlevel=100
 " 用空格键来开关折叠
 set foldenable
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
@@ -492,5 +492,21 @@ let g:netrw_banner = 0
 "==========tagbar.vim===============
 let g:tagbar_width = 30
 nmap tb :TagbarToggle<cr>
+
+let g:tagbar_type_tex = {
+    \ 'ctagstype' : 'latex',
+    \ 'kinds'     : [
+        \ 's:sections',
+        \ 'g:graphics:1',
+        \ 'l:labels:1',
+        \ 'r:refs:1',
+        \ 'p:pagerefs:1'
+    \ ],
+    \ 'sort'    : 0
+\ }
+
+
+
+
 "==========private info==============
 source ~/.vim/private.vim

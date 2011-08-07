@@ -46,8 +46,8 @@ let &cpo = s:save_cpo
 " vim:sts=2:sw=2:
 set iskeyword+=:
 set sw=1
-set tabstop=2
-set softtabstop=2
+setlocal tabstop=2
+setlocal softtabstop=2
 
 
 map <F3> :call SyncTexForward()<CR>
