@@ -43,7 +43,6 @@ filetype plugin on
 filetype indent on
 set completeopt=longest,menu " preview
 set runtimepath+=~/.vim
-au BufNewFile,BufRead *.nc setf nc
 au BufNewFile,BufRead *.lng  setf lingo
 au BufNewFile,BufRead *.asm set ft=masm
 au BufRead,BufNewFile *.txt setlocal ft=txt
@@ -200,9 +199,7 @@ let g:tex_flavor="tex"
 let g:EchoFuncLangsUsed = ["c","cpp"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "智能补全ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
-if &filetype=='nc'
-	map <C-F12> :!(ctags -R --languages=nesc .)
-  else
+if &filetype=='c'||&filetype=='cpp'
 	map <C-F12> :!(ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .;find ./ -name "*.c" -or -name "*.h" -or -name "*.cpp" > cscope.files;cscope -bkq)<cr>:cs a cscope.out<cr>
 endif
 

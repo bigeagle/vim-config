@@ -1,5 +1,6 @@
 augroup filetypedetect
 "au BufNewFile,BufRead *.wiki setf Wikipedia
+au BufNewFile,BufRead *.nc setf nc
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm  call s:FThtml()
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm  setf htmldjango
 
