@@ -166,6 +166,7 @@ set foldcolumn=0 "设置折叠区域的宽度
 " 用空格键来开关折叠
 set foldenable
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+set foldlevel=100
 
 "程序每次产生一个文件名.
 set grepprg=grep\ -nH\ $*
@@ -492,5 +493,18 @@ let g:netrw_banner = 0
 "==========tagbar.vim===============
 let g:tagbar_width = 30
 nmap tb :TagbarToggle<cr>
+
+let g:tagbar_type_nc = {
+    \ 'ctagstype' : 'nesc',
+    \ 'kinds'     : [
+        \ 'd:definition',
+        \ 'f:function'
+        \ 'c:command',
+        \ 'a:task',
+        \ 'e:event',
+    \ ],
+\ }
+
+
 "==========private info==============
 source ~/.vim/private.vim
