@@ -1,0 +1,35 @@
+--langdef=latex
+--langmap=latex:.tex
+--regex-latex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
+--regex-latex=/^\\frontmatter/FRONTMATTER/s,frontmatter/
+--regex-latex=/^\\mainmatter/MAINMATTER/s,mainmatter/
+--regex-latex=/^\\backmatter/BACKMATTER/s,backmatter/
+--regex-latex=/^\\bibliography\{/BIBLIOGRAPHY/s,bibliography/
+--regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
+--regex-latex=/^\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/s,part/
+--regex-latex=/^\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
+--regex-latex=/^\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
+--regex-latex=/^\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
+--regex-latex=/^\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
+--regex-latex=/^\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
+--regex-latex=/^\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
+--regex-latex=/^\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
+--regex-latex=/^\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
+--regex-latex=/^\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-latex=/^\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-latex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
+--regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
+--regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
+
+
+--langdef=nesc
+--langmap=nesc:.nc
+
+--regex-nesc=/^module[ \t]*([a-zA-Z0-9_]+)/\1/d,definition/
+--regex-nesc=/^configuration[ \t]*([a-zA-Z0-9_]+)/\1/d,defiition/
+--regex-nesc=/^interface[ \t]*([a-zA-Z0-9_]+)/\1/d,definition/
+--regex-nesc=/^[ \t]*event[ \t]*([a-zA-Z0-9_]+)[ \t]+([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)[ \t]*\(/\1 \2\.\3/e,event/
+--regex-nesc=/^[ \t]*command[ \t]*([a-zA-Z0-9_]+)[ \t]+([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)[ \t]*\(/\1 \2\.\3/c,command/
+--regex-nesc=/^[ \t]*task[ \t]*([a-zA-Z0-9_]+)[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\1 \2/a,task/
+--regex-nesc=/^[ \t]*([a-zA-Z0-9_]+[*]*)[ \t]+([a-zA-Z0-9_]+)[ \t]*\([a-zA-Z0-9_*, \t]*\)[ \t]*[\{]{0,1}$/\1 \2/f,function/
+--regex-nesc=/^[ \t]*([a-zA-Z0-9_]+[*]*)[ \t]+([a-zA-Z0-9_]+)[ \t]*\([a-zA-Z0-9_*, \t]*\)[ \t]*\{/\1 \2/f,function/
