@@ -299,6 +299,11 @@ endfunction "}}}
 "}}}
 
 " INLINE TAGS "{{{
+function! s:tag_eqin(value) "{{{
+  " mathJAX wants \( \) for inline maths
+  return '\('.s:mid(a:value, 1).'\)'
+endfunction "}}}
+
 function! s:tag_em(value) "{{{
   return '<em>'.s:mid(a:value, 1).'</em>'
 endfunction "}}}
@@ -329,6 +334,10 @@ endfunction "}}}
 
 function! s:tag_pre(value) "{{{
   return '<code>'.s:mid(a:value, 3).'</code>'
+endfunction "}}}
+
+function! s:tag_math(value) "{{{
+  return '\['.s:mid(a:value, 3).'\]'
 endfunction "}}}
 
 function! s:tag_internal_link(value) "{{{
@@ -509,9 +518,13 @@ function! s:make_tag(line, regexp, func) "{{{
   " Make tags for a given matched regexp.
   " Exclude preformatted text and href links.
 
-  let patt_splitter = '\(`[^`]\+`\)\|\({{{.\+}}}\)\|'.
-        \ '\(<a href.\{-}</a>\)\|\(<img src.\{-}/>\)'
-  if '`[^`]\+`' == a:regexp || '{{{.\+}}}' == a:regexp
+  let patt_splitter = '\(`[^`]\+`\)\|'.
+                    \ '\('.g:vimwiki_rxPreStart.'.\+'.g:vimwiki_rxPreEnd.'\)\|'.
+                    \ '\(<a href.\{-}</a>\)\|'.
+                    \ '\(<img src.\{-}/>\)\|'.
+      	            \ '\('.g:vimwiki_rxEqIn.'\)'
+
+  if '`[^`]\+`' == a:regexp || '{{{.\+}}}' == a:regexp || g:vimwiki_rxEqIn == a:regexp
     let res_line = s:subst_func(a:line, a:regexp, a:func)
   else
     let pos = 0
@@ -549,6 +562,7 @@ function! s:process_tags_typefaces(line) "{{{
   let line = s:make_tag(line, g:vimwiki_rxSuperScript, 's:tag_super')
   let line = s:make_tag(line, g:vimwiki_rxSubScript, 's:tag_sub')
   let line = s:make_tag(line, g:vimwiki_rxCode, 's:tag_code')
+  let line = s:make_tag(line, g:vimwiki_rxEqIn, 's:tag_eqin')
   return line
 endfunction " }}}
 
@@ -575,6 +589,14 @@ function! s:close_tag_pre(pre, ldest) "{{{
     return 0
   endif
   return a:pre
+endfunction "}}}
+
+function! s:close_tag_math(math, ldest) "{{{
+  if a:math[0]
+    call insert(a:ldest, "\\\]")
+    return 0
+  endif
+  return a:math
 endfunction "}}}
 
 function! s:close_tag_quote(quote, ldest) "{{{
@@ -767,6 +789,40 @@ function! s:process_tag_pre(line, pre) "{{{
     call add(lines, substitute(a:line, '^\s\{'.pre[1].'}', '', ''))
   endif
   return [processed, lines, pre]
+endfunction "}}}
+
+function! s:process_tag_math(line, math) "{{{
+  " math is the list of [is_in_math, indent_of_math]
+  let lines = []
+  let math = a:math
+  let processed = 0
+  if !math[0] && a:line =~ '^\s*{{\$[^\(}}$\)]*\s*$'
+    let class = matchstr(a:line, '{{$\zs.*$')
+    let class = substitute(class, '\s\+$', '', 'g')
+    " Check the math placeholder (default: displaymath)
+    let b:vimwiki_mathEnv = matchstr(class, '^%\zs\S\+\ze%')
+    if b:vimwiki_mathEnv != ""
+        call add(lines, substitute(class, '^%\(\S\+\)%','\\begin{\1}', ''))
+    elseif class != ""
+      call add(lines, "\\\[".class)
+    else
+      call add(lines, "\\\[")
+    endif
+    let math = [1, len(matchstr(a:line, '^\s*\ze{{\$'))]
+    let processed = 1
+  elseif math[0] && a:line =~ '^\s*}}\$\s*$'
+    let math = [0, 0]
+    if b:vimwiki_mathEnv != ""
+      call add(lines, "\\end{".b:vimwiki_mathEnv."}")
+    else
+      call add(lines, "\\\]")
+    endif
+    let processed = 1
+  elseif math[0]
+    let processed = 1
+    call add(lines, substitute(a:line, '^\s\{'.math[1].'}', '', ''))
+  endif
+  return [processed, lines, math]
 endfunction "}}}
 
 function! s:process_tag_quote(line, quote) "{{{
@@ -1072,6 +1128,7 @@ function! s:parse_line(line, state) " {{{
   let state.para = a:state.para
   let state.quote = a:state.quote
   let state.pre = a:state.pre[:]
+  let state.math = a:state.math[:]
   let state.table = a:state.table[:]
   let state.lists = a:state.lists[:]
   let state.deflist = a:state.deflist
@@ -1135,6 +1192,9 @@ function! s:parse_line(line, state) " {{{
     " if processed && len(state.lists)
       " call s:close_tag_list(state.lists, lines)
     " endif
+    if !processed
+      let [processed, lines, state.math] = s:process_tag_math(line, state.math)
+    endif
     if processed && len(state.table)
       let state.table = s:close_tag_table(state.table, lines)
     endif
@@ -1160,6 +1220,9 @@ function! s:parse_line(line, state) " {{{
     if processed && state.pre[0]
       let state.pre = s:close_tag_pre(state.pre, lines)
     endif
+    if processed && state.math[0]
+      let state.math = s:close_tag_math(state.math, lines)
+    endif
     if processed && len(state.table)
       let state.table = s:close_tag_table(state.table, lines)
     endif
@@ -1183,6 +1246,7 @@ function! s:parse_line(line, state) " {{{
       call s:close_tag_list(state.lists, res_lines)
       let state.table = s:close_tag_table(state.table, res_lines)
       let state.pre = s:close_tag_pre(state.pre, res_lines)
+      let state.math = s:close_tag_math(state.math, res_lines)
       let state.quote = s:close_tag_quote(state.quote, res_lines)
       let state.para = s:close_tag_para(state.para, res_lines)
 
@@ -1218,6 +1282,9 @@ function! s:parse_line(line, state) " {{{
     if processed && state.pre[0]
       let state.pre = s:close_tag_pre(state.pre, lines)
     endif
+    if processed && state.math[0]
+      let state.math = s:close_tag_math(state.math, lines)
+    endif
     if processed && state.para
       let state.para = s:close_tag_para(state.para, lines)
     endif
@@ -1235,6 +1302,7 @@ function! s:parse_line(line, state) " {{{
       call s:close_tag_list(state.lists, res_lines)
       let state.table = s:close_tag_table(state.table, res_lines)
       let state.pre = s:close_tag_pre(state.pre, res_lines)
+      let state.math = s:close_tag_math(state.math, res_lines)
       call add(res_lines, line)
     endif
   endif
@@ -1261,6 +1329,9 @@ function! s:parse_line(line, state) " {{{
     endif
     if processed && state.pre[0]
       let state.pre = s:close_tag_pre(state.pre, res_lines)
+    endif
+    if processed && state.math[0]
+      let state.math = s:close_tag_math(state.math, res_lines)
     endif
     if processed && len(state.table)
       let state.table = s:close_tag_table(state.table, res_lines)
@@ -1315,6 +1386,7 @@ function! vimwiki#html#Wiki2HTML(path, wikifile) "{{{
   let state.para = 0
   let state.quote = 0
   let state.pre = [0, 0] " [in_pre, indent_pre]
+  let state.math = [0, 0] " [in_math, indent_math]
   let state.table = []
   let state.deflist = 0
   let state.lists = []
@@ -1364,6 +1436,7 @@ function! vimwiki#html#Wiki2HTML(path, wikifile) "{{{
   call s:close_tag_quote(state.quote, lines)
   call s:close_tag_para(state.para, lines)
   call s:close_tag_pre(state.pre, lines)
+  call s:close_tag_math(state.math, lines)
   call s:close_tag_list(state.lists, lines)
   call s:close_tag_def_list(state.deflist, lines)
   call s:close_tag_table(state.table, lines)

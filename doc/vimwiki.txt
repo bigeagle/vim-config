@@ -69,9 +69,9 @@ Feed it with the following example:
     * ScratchPad -- various temporary stuff.
 
 
-Notice that ProjectGutenberg, MyUrgentTasks and ScratchPad are highlighted as
-errors. These are links in CamelCase form that do not exists yet. (CamelCase
-form -- capitalized word connected with other capitalized words)
+Notice that !ProjectGutenberg, !MyUrgentTasks and !ScratchPad curly
+underlined. These are links in CamelCase form that do not exists yet.
+(CamelCase form -- capitalized word connected with other capitalized words)
 
 Place cursor on ProjectGutenberg and press <Enter>. Now you are in
 ProjectGutenberg. Edit and save it, then press Backspace to return to previous

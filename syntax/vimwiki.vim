@@ -33,6 +33,7 @@ syn match VimwikiNoLinkChar contained /\]\]/
 syn match VimwikiNoLinkChar contained /\[\[[^\[\]\|]\{-}|\ze.*]]/
 syn match VimwikiNoLinkChar contained /\[\[[^\[\]\|]\{-}]\[\ze.*]]/
 
+execute 'syn match VimwikiEqInChar contained /'.g:vimwiki_char_eqin.'/'
 execute 'syn match VimwikiBoldChar contained /'.g:vimwiki_char_bold.'/'
 execute 'syn match VimwikiItalicChar contained /'.g:vimwiki_char_italic.'/'
 execute 'syn match VimwikiBoldItalicChar contained /'.g:vimwiki_char_bolditalic.'/'
@@ -47,6 +48,7 @@ endif
 
 " Non concealed chars
 syn match VimwikiHeaderChar contained /\%(^\s*=\+\)\|\%(=\+\s*$\)/
+execute 'syn match VimwikiEqInCharT contained /'.g:vimwiki_char_eqin.'/'
 execute 'syn match VimwikiBoldCharT contained /'.g:vimwiki_char_bold.'/'
 execute 'syn match VimwikiItalicCharT contained /'.g:vimwiki_char_italic.'/'
 execute 'syn match VimwikiBoldItalicCharT contained /'.g:vimwiki_char_bolditalic.'/'
@@ -66,11 +68,21 @@ execute 'syntax match VimwikiTodo /'. g:vimwiki_rxTodo .'/'
 
 " Tables
 syntax match VimwikiTableRow /^\s*|.\+|\s*$/ 
-      \ transparent contains=VimwikiCellSeparator,VimwikiLinkT,
-      \ VimwikiNoExistsLinkT,VimwikiEmoticons,VimwikiTodo,
-      \ VimwikiBoldT,VimwikiItalicT,VimwikiBoldItalicT,VimwikiItalicBoldT,
-      \ VimwikiDelTextT,VimwikiSuperScriptT,VimwikiSubScriptT,VimwikiCodeT,
-      \ @Spell
+      \ transparent contains=VimwikiCellSeparator,
+                           \ VimwikiLinkT,
+                           \ VimwikiNoExistsLinkT,
+                           \ VimwikiEmoticons,
+                           \ VimwikiTodo,
+                           \ VimwikiBoldT,
+                           \ VimwikiItalicT,
+                           \ VimwikiBoldItalicT,
+                           \ VimwikiItalicBoldT,
+                           \ VimwikiDelTextT,
+                           \ VimwikiSuperScriptT,
+                           \ VimwikiSubScriptT,
+                           \ VimwikiCodeT,
+                           \ VimwikiEqInT,
+                           \ @Spell
 syntax match VimwikiCellSeparator 
       \ /\%(|\)\|\%(-\@<=+\-\@=\)\|\%([|+]\@<=-\+\)/ contained
 
@@ -78,6 +90,9 @@ syntax match VimwikiCellSeparator
 execute 'syntax match VimwikiList /'.g:vimwiki_rxListBullet.'/'
 execute 'syntax match VimwikiList /'.g:vimwiki_rxListNumber.'/'
 execute 'syntax match VimwikiList /'.g:vimwiki_rxListDefine.'/'
+
+execute 'syntax match VimwikiEqIn /'.g:vimwiki_rxEqIn.'/ contains=VimwikiEqInChar'
+execute 'syntax match VimwikiEqInT /'.g:vimwiki_rxEqIn.'/ contained contains=VimwikiEqInCharT'
 
 execute 'syntax match VimwikiBold /'.g:vimwiki_rxBold.'/ contains=VimwikiBoldChar,@Spell'
 execute 'syntax match VimwikiBoldT /'.g:vimwiki_rxBold.'/ contained contains=VimwikiBoldCharT,@Spell'
@@ -103,12 +118,14 @@ execute 'syntax match VimwikiSubScriptT /'.g:vimwiki_rxSubScript.'/ contained co
 execute 'syntax match VimwikiCode /'.g:vimwiki_rxCode.'/ contains=VimwikiCodeChar'
 execute 'syntax match VimwikiCodeT /'.g:vimwiki_rxCode.'/ contained contains=VimwikiCodeCharT'
 
-
 " <hr> horizontal rule
 execute 'syntax match VimwikiHR /'.g:vimwiki_rxHR.'/'
 
 execute 'syntax region VimwikiPre start=/^\s*'.g:vimwiki_rxPreStart.
       \ '/ end=/^\s*'.g:vimwiki_rxPreEnd.'\s*$/ contains=@Spell'
+
+execute 'syntax region VimwikiMath start=/^\s*'.g:vimwiki_rxMathStart.
+      \ '/ end=/^\s*'.g:vimwiki_rxMathEnd.'\s*$/ contains=@Spell'
 
 " List item checkbox
 syntax match VimwikiCheckBox /\[.\?\]/
@@ -174,6 +191,9 @@ endif
 
 hi def link VimwikiMarkers Normal
 
+hi def link VimwikiEqIn Number
+hi def link VimwikiEqInT VimwikiEqIn
+
 hi def VimwikiBold term=bold cterm=bold gui=bold
 hi def link VimwikiBoldT VimwikiBold
 
@@ -192,6 +212,9 @@ hi def link VimwikiCodeT VimwikiCode
 
 hi def link VimwikiPre PreProc
 hi def link VimwikiPreT VimwikiPre
+
+hi def link VimwikiMath Number
+hi def link VimwikiMathT VimwikiMath
 
 hi def link VimwikiNoExistsLink SpellBad
 hi def link VimwikiNoExistsLinkT VimwikiNoExistsLink
@@ -220,6 +243,7 @@ hi def link VimwikiPlaceholder SpecialKey
 hi def link VimwikiPlaceholderParam String
 hi def link VimwikiHTMLtag SpecialKey
 
+hi def link VimwikiEqInChar VimwikiMarkers
 hi def link VimwikiCellSeparator VimwikiMarkers
 hi def link VimwikiBoldChar VimwikiMarkers
 hi def link VimwikiItalicChar VimwikiMarkers
@@ -233,6 +257,7 @@ hi def link VimwikiHeaderChar VimwikiMarkers
 hi def link VimwikiLinkChar VimwikiLink
 hi def link VimwikiNoLinkChar VimwikiNoExistsLink
 
+hi def link VimwikiEqInCharT VimwikiMarkers
 hi def link VimwikiBoldCharT VimwikiMarkers
 hi def link VimwikiItalicCharT VimwikiMarkers
 hi def link VimwikiBoldItalicCharT VimwikiMarkers
@@ -256,6 +281,10 @@ if !empty(nested)
           \ '^\s*{{{\%(.*[[:blank:][:punct:]]\)\?'.
           \ hl_syntax.'\%([[:blank:][:punct:]].*\)\?',
           \ '^\s*}}}', 'VimwikiPre')
+"    call vimwiki#base#nested_syntax(vim_syntax, 
+"          \ '^\s*{{\$\%(.*[[:blank:][:punct:]]\)\?'.
+"          \ hl_syntax.'\%([[:blank:][:punct:]].*\)\?',
+"          \ '^\s*}}\$', 'VimwikiMath')
   endfor
 endif
 "}}}
