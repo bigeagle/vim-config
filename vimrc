@@ -174,6 +174,7 @@ set grepprg=grep\ -nH\ $*
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 
 " 在搜索的时候忽略大小写
+set smartcase
 set ignorecase
 "
 " 不要高亮被搜索的句子（phrases）
@@ -319,7 +320,7 @@ let NERDTreeWinSize=25
 " Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "加上日期 对应F2
-:map <F2> gg:read !date<CR>
+:map <F2> :read !date<CR>
 
 " bind :CD to :cd %:h, then change cwd to the dir that includes current file
 ""Nerd Comment

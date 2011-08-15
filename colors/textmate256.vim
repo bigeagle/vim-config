@@ -19,9 +19,9 @@ let colors_name = "textmate256"
 hi Normal guifg=#F8F8F8 guibg=#090B18 ctermfg=254 ctermbg=233 cterm=none
 hi Cursor guifg=Black guibg=Yellow ctermfg=16 ctermbg=226 cterm=none
 
-hi LineNr guifg=#333333 ctermfg=238 ctermbg=233 cterm=none
+hi LineNr guifg=grey30 ctermfg=239 ctermbg=233 cterm=none
 hi VertSplit guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241 ctermbg=187 cterm=none
-hi Folded guibg=black guifg=grey50 ctermfg=241 ctermbg=232 cterm=none
+hi Folded guibg=black guifg=khaki ctermfg=228 ctermbg=232 cterm=none
 hi FoldColumn guibg=black guifg=grey20 ctermfg=236 ctermbg=16 cterm=none
 hi IncSearch guibg=black guifg=yellow ctermfg=226 ctermbg=16 cterm=none
 hi ModeMsg guifg=goldenrod ctermfg=172 ctermbg=233 cterm=none
