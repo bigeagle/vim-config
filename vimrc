@@ -219,16 +219,16 @@ let OmniCpp_MayCompleteScope = 1
 "-----------------------------------------------------------------
 " plugin - NeoComplCache.vim    自动补全插件
 "-----------------------------------------------------------------
-let g:neocomplcache_enable_at_startup = 1
-let g:NeoComplCache_SmartCase = 1
-let g:NeoComplCache_TagsAutoUpdate = 1
-let g:NeoComplCache_EnableInfo = 1
-let g:NeoComplCache_EnableCamelCaseCompletion = 1
-let g:NeoComplCache_MinSyntaxLength = 3
-let g:NeoComplCache_EnableSkipCompletion = 1
-let g:NeoComplCache_SkipInputTime = '0.5'
-let g:NeoComplCache_SnippetsDir = $VIMFILES.'/snippets'
-let g:neocomplcache_disable_auto_complete=1
+"let g:neocomplcache_enable_at_startup = 1
+"let g:NeoComplCache_SmartCase = 1
+"let g:NeoComplCache_TagsAutoUpdate = 1
+"let g:NeoComplCache_EnableInfo = 1
+"let g:NeoComplCache_EnableCamelCaseCompletion = 1
+"let g:NeoComplCache_MinSyntaxLength = 3
+"let g:NeoComplCache_EnableSkipCompletion = 1
+"let g:NeoComplCache_SkipInputTime = '0.5'
+"let g:NeoComplCache_SnippetsDir = $VIMFILES.'/snippets'
+"let g:neocomplcache_disable_auto_complete=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pydoc_cmd = "/usr/bin/pydoc2"
