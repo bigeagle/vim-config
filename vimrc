@@ -59,21 +59,21 @@ set autoindent
 " 为C程序提供自动缩进
 set smartindent
 
-au FileType c,cpp,h,java setlocal cindent
+au FileType c,cpp,h,java,js,nginx setlocal cindent
 
 " 使用C样式的缩进
 function! GnuIndent()
   setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
-  setlocal shiftwidth=2
+  setlocal shiftwidth=4
   setlocal tabstop=4
 endfunction
 
 au FileType c,cpp,h setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
-au FileType html  setlocal autoindent indentexpr=
+au FileType html,js,css  setlocal autoindent sw=2 ts=2 sts=2 expandtab
 au FileType changelog setlocal textwidth=76
 
-set shiftwidth=2
+set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
@@ -416,12 +416,12 @@ function ClosePair(char)
   endif
 endf
 
-au FileType c,cpp,h,java inoremap  <buffer>  {<CR>    {<CR>}<Esc>O
+au FileType c,cpp,h,java,css,js,nginx inoremap  <buffer>  {<CR>	{<CR>}<Esc>O
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
 if has("autocmd")
-  autocmd FileType xml,html,c,cs,h,java,perl,shell,bash,cpp,python,vim,php,ruby,s,S,tex set number
+  autocmd FileType xml,html,c,cs,h,java,perl,shell,bash,cpp,python,vim,php,ruby,s,S,tex,js set number
   autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
   autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o/*<ESC>'>o*/
   autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
@@ -439,6 +439,7 @@ endif "has("autocmd")
 
 au BufNewFile *.py call ScriptHeader()
 au BufNewFile *.sh call ScriptHeader()
+
 function ScriptHeader()
   if &filetype == 'python'
 	let header = "#!/usr/bin/env python2"
@@ -489,7 +490,6 @@ let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
 let g:netrw_browse_split = 3
 let g:netrw_banner = 0
-
 "===========django====================================
 "
 "==========tagbar.vim===============

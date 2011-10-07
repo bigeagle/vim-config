@@ -1,5 +1,6 @@
 private.vim
 .netrwhist
+*.pyc
 *.back
 *.swp
 *.un~

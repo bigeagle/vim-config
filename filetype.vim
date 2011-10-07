@@ -3,7 +3,7 @@ augroup filetypedetect
 au BufNewFile,BufRead *.nc setf nc
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm  call s:FThtml()
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm  setf htmldjango
-
+au BufRead,BufNewFile */etc/nginx/conf/* set ft=nginx
 " Distinguish between HTML, XHTML and Django
 func! s:FThtml()
   let n = 1
