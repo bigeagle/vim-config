@@ -7,7 +7,7 @@ if &t_Co != 256 && ! has("gui_running")
    finish
 endif
 
-set background=dark
+"set background=dark
 
 hi clear
 

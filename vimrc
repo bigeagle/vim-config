@@ -37,6 +37,8 @@ set number
 "语法高亮度显示
 syntax on
 
+call pathogen#runtime_append_all_bundles()
+
 "检测文件的类型 开启codesnip
 filetype on
 filetype plugin on
@@ -183,6 +185,18 @@ set nohlsearch
 " " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set incsearch
 
+" 插入模式下使用Alt-hjkl移动光标
+"if !has("gui_running")
+"    imap h <left>
+"    imap j <down>
+"    imap k <up>
+"    imap l <right>
+"else
+"    inoremap <A-h> <left>
+"    inoremap <A-j> <down>
+"    inoremap <A-k> <up>
+"    inoremap <A-l> <right>
+"endif
 
 "LaTex Suite"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! SyncTexForward()
@@ -467,8 +481,8 @@ let twitvim_browser_cmd = 'firefox'
 let twitvim_old_retweet = 1
 "=======================================================
 let g:vimwiki_list=[{'path':'/home/bigeagle/documents/Dropbox/vimwiki',
-	  \ 'path_html':'/srv/http/',
-	  \ 'template_path':'/srv/http/',
+	  \ 'path_html':'/srv/http/wiki/',
+	  \ 'template_path':'/srv/http/wiki/',
 	  \	'template_default':'main_template',
 	  \ 'template_ext':'.tpl'}]
 

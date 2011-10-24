@@ -1,8 +1,8 @@
 " Vim completion script	- hit 80% complete tasks
-" Version:	0.77.1
+" Version:	0.77.1.2
 " Language:	Java
 " Maintainer:	cheng fang <fangread@yahoo.com.cn>
-" Last Change:	2007-09-26
+" Last Change:	2011-01-30
 " Copyright:	Copyright (C) 2006-2007 cheng fang. All rights reserved.
 " License:	Vim License	(see vim's :help license)
 
@@ -1746,6 +1746,14 @@ fu! s:GetClassPath()
 endfu
 
 fu! s:GetJavaCompleteClassPath()
+  " remove *.class from wildignore if it exists, so that globpath doesn't ignore Reflection.class
+  " vim versions >= 702 can add the 1 flag to globpath which ignores '*.class" in wildingore
+  let has_class = 0
+  if &wildignore =~# "*.class"
+    set wildignore-=*.class
+    let has_class = 1
+  endif
+
   let classfile = globpath(&rtp, 'autoload/Reflection.class')
   if classfile == ''
     let classfile = globpath($HOME, 'Reflection.class')
@@ -1757,12 +1765,18 @@ fu! s:GetJavaCompleteClassPath()
       exe '!' . javacomplete#GetCompiler() . ' -d "' . $HOME . '" "' . srcfile . '"'
       let classfile = globpath($HOME, 'Reflection.class')
       if classfile == ''
-	echo srcfile . ' can not be compiled. Please check it'
+        echo srcfile . ' can not be compiled. Please check it'
       endif
     else
       echo 'No Reflection.class found in $HOME or any autoload directory of the &rtp. And no Reflection.java found in any autoload directory of the &rtp to compile.'
     endif
   endif
+
+  " add *.class to wildignore if it existed before
+  if has_class == 1
+    set wildignore+=*.class
+  endif
+
   return fnamemodify(classfile, ':p:h')
 endfu
 
