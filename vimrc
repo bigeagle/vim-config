@@ -48,6 +48,7 @@ set runtimepath+=~/.vim
 au BufNewFile,BufRead *.lng  setf lingo
 au BufNewFile,BufRead *.asm set ft=masm
 au BufRead,BufNewFile *.txt setlocal ft=txt
+au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/ftplugin/XMLFolding.vim
 "鼠标支持
 if has('mouse')
   set mouse=a
@@ -70,9 +71,9 @@ function! GnuIndent()
   setlocal tabstop=4
 endfunction
 
-au FileType c,cpp,h setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
+au FileType c,cpp,h,java,python setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
-au FileType html,js,css  setlocal autoindent sw=2 ts=2 sts=2 expandtab
+au FileType html,js,css,htmldjango  setlocal autoindent sw=2 ts=2 sts=2 expandtab
 au FileType changelog setlocal textwidth=76
 
 set shiftwidth=4
@@ -216,6 +217,8 @@ let g:EchoFuncLangsUsed = ["c","cpp"]
 "智能补全ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
 if &filetype=='c'||&filetype=='cpp'
 	map <C-F12> :!(ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .;find ./ -name "*.c" -or -name "*.h" -or -name "*.cpp" > cscope.files;cscope -bkq)<cr>:cs a cscope.out<cr>
+elseif  &filetype=='java'
+	map <C-F12> :!(find ./ -name "*.java" > cscope.files;cscope -bkq)<cr>:cs a cscope.out<cr>
 endif
 
 let OmniCpp_DefaultNamespaces = ["std","_GLIBCXX_STD"]
@@ -258,14 +261,14 @@ if has("cscope")
   " add any database in current directory
 endif
 
-nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <unique> <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <unique> <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <unique> <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <unique> <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <unique> <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <unique> <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <unique> <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <unique> <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -275,6 +278,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType jsp set omnifunc=javacomplete#Complete
 
 " mapping
 inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
@@ -285,9 +289,9 @@ inoremap <expr> <C-K>      pumvisible()?"\<PageUp>\<C-P>\<C-N>":"\<C-K>"
 " CTags的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set tags+=~/.vim/tags/systags
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/glib
+au FileType c,h,cpp set tags+=~/.vim/tags/systags
+au FileType cpp set tags+=~/.vim/tags/cpp
+au FileType c,h set tags+=~/.vim/tags/glib
 "set tags+=/home/bigeagle/.vim/tags/qt4
 
 
@@ -439,7 +443,8 @@ if has("autocmd")
   autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
   autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o/*<ESC>'>o*/
   autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
-  autocmd Filetype html,xml,xsl source ~/.vim/plugin/closetag.vim
+  autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/closetag.vim
+  autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/html_autoclosetag.vim
   autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \ exe " normal g`\"" |
