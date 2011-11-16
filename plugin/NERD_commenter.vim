@@ -184,6 +184,7 @@ let s:delimiterMap = {
     \ 'hostsaccess': { 'left': '#' },
     \ 'htmlcheetah': { 'left': '##' },
     \ 'htmldjango': { 'left': '<!--','right': '-->', 'leftAlt': '{#', 'rightAlt': '#}' },
+    \ 'html': { 'left': '<!--','right': '-->', 'leftAlt': '{#', 'rightAlt': '#}' },
     \ 'htmlos': { 'left': '#', 'right': '/#' },
     \ 'ia64': { 'left': '#' },
     \ 'icon': { 'left': '#' },
@@ -2329,7 +2330,7 @@ endfunction
 function s:Left(...)
     let params = a:0 ? a:1 : {}
 
-    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['leftAlt'] : b:NERDCommenterDelims['left'] 
+    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['leftAlt'] : b:NERDCommenterDelims['left']
 
     if delim == ''
         return ''
@@ -2508,7 +2509,7 @@ endfunction
 function s:Right(...)
     let params = a:0 ? a:1 : {}
 
-    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['rightAlt'] : b:NERDCommenterDelims['right'] 
+    let delim = has_key(params, 'alt') ? b:NERDCommenterDelims['rightAlt'] : b:NERDCommenterDelims['right']
 
     if delim == ''
         return ''

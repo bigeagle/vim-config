@@ -62,7 +62,7 @@ set autoindent
 " 为C程序提供自动缩进
 set smartindent
 
-au FileType c,cpp,h,java,js,nginx setlocal cindent
+au FileType c,cpp,h,java,javascript,nginx,html,htmldjango setlocal cindent
 
 " 使用C样式的缩进
 function! GnuIndent()
@@ -71,9 +71,9 @@ function! GnuIndent()
   setlocal tabstop=4
 endfunction
 
-au FileType c,cpp,h,java,python setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
+au FileType c,cpp,h,java,python,javascript setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
-au FileType html,js,css,htmldjango  setlocal autoindent sw=2 ts=2 sts=2 expandtab
+au FileType html,js,css,htmldjango,html setlocal autoindent sw=2 ts=2 sts=2 expandtab
 au FileType changelog setlocal textwidth=76
 
 set shiftwidth=4
@@ -185,19 +185,6 @@ set nohlsearch
 "
 " " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set incsearch
-
-" 插入模式下使用Alt-hjkl移动光标
-"if !has("gui_running")
-"    imap h <left>
-"    imap j <down>
-"    imap k <up>
-"    imap l <right>
-"else
-"    inoremap <A-h> <left>
-"    inoremap <A-j> <down>
-"    inoremap <A-k> <up>
-"    inoremap <A-l> <right>
-"endif
 
 "LaTex Suite"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! SyncTexForward()
@@ -537,6 +524,8 @@ let g:tagbar_type_nc = {
         \ 'e:event'
     \ ],
 \ }
+""======== HTML JS =================
+let g:js_indent_log = 0
 
 "==========private info==============
 source ~/.vim/private.vim
