@@ -3,4 +3,4 @@ private.vim
 *.pyc
 *.back
 *.swp
-*.un~
+*~
