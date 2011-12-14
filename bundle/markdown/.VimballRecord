@@ -1,0 +1,1 @@
+markdown-1.2.2.vba.gz: call delete('/home/bigeagle/.vim/bundle/markdown/ftdetect/markdown.vim')|call delete('/home/bigeagle/.vim/bundle/markdown/snippets/markdown.snippets')|call delete('/home/bigeagle/.vim/bundle/markdown/syntax/markdown.vim')
