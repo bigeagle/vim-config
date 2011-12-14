@@ -4,3 +4,6 @@
 [submodule "bundle/zencoding"]
 	path = bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule "bundle/Mark"]
+	path = bundle/Mark
+	url = git://github.com/vim-scripts/Mark--Karkat.git
