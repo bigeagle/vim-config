@@ -186,6 +186,10 @@ set nohlsearch
 " " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set incsearch
 
+""vimdiff
+set diffopt+=vertical
+"" ]c 跳到上一个冲突处, ]c跳到下一个冲突处, dp = :diffput , :Gwrite 保存
+
 "LaTex Suite"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! SyncTexForward()
   let execstr = "silent !okular --unique %:p:r.pdf\#src:".line(".")."%:p &"
@@ -333,39 +337,39 @@ nnoremap <C-h> :call NERDComment(0,"toggle") <cr>
 vnoremap <C-h> :call NERDComment(1,"toggle") <cr>
 
 "设置程序的运行和调试的快捷键F5和Ctrl-F5
-map <F5> :call CompileRun()<CR>
+"map <F5> :call CompileRun()<CR>
 
 ""定义CompileRun函数，用来调用进行编译和运行
-func CompileRun()
-  exec "w"
-  "C程序
-  if &filetype == 'c'
-	let filename = expand("%<")
-    exec "!gcc -Wall -g % -o %<"
-    exec "ConqueTermVSplit ./".filename
-	"exec \"! ./%<"
-    "C++
-  elseif &filetype == 'cpp'
-	let filename = expand("%<")
-    exec "!g++ -Wall -g % -o %<"
-    exec "ConqueTermVSplit ./".filename
-    "JAVA
-  elseif &filetype == 'java'
-	let filename = expand("%<")
-    exec "!javac %"
-    exec "!java %<"
-  elseif &filetype == 'python'
-    "exec /"!python2 %<"
-	let filename = expand("%")
-    exec "ConqueTermVSplit python2 ".filename
-  elseif &filetype == 'vimwiki'
-    "exec /"!python2 %<"
-    exec "Vimwiki2HTML"
-  elseif &filetype == 'nc'
-    "exec /"!python2 %<"
-    exec "make micaz"
-  endif
-endfunc
+"func CompileRun()
+"  exec "w"
+"  "C程序
+"  if &filetype == 'c'
+"	let filename = expand("%<")
+"    exec "!gcc -Wall -g % -o %<"
+"    exec "ConqueTermVSplit ./".filename
+"	"exec \"! ./%<"
+"    "C++
+"  elseif &filetype == 'cpp'
+"	let filename = expand("%<")
+"    exec "!g++ -Wall -g % -o %<"
+"    exec "ConqueTermVSplit ./".filename
+"    "JAVA
+"  elseif &filetype == 'java'
+"	let filename = expand("%<")
+"    exec "!javac %"
+"    exec "!java %<"
+"  elseif &filetype == 'python'
+"    "exec /"!python2 %<"
+"	let filename = expand("%")
+"    exec "ConqueTermVSplit python2 ".filename
+"  elseif &filetype == 'vimwiki'
+"    "exec /"!python2 %<"
+"    exec "Vimwiki2HTML"
+"  elseif &filetype == 'nc'
+"    "exec /"!python2 %<"
+"    exec "make micaz"
+"  endif
+"endfunc
 "结束定义CompileRun
 
 map <C-F5> :call Debug()<CR>
@@ -476,6 +480,11 @@ let g:vimwiki_list=[{'path':'/home/bigeagle/documents/Dropbox/vimwiki',
 	  \ 'path_html':'/srv/http/wiki/',
 	  \ 'template_path':'/srv/http/wiki/',
 	  \	'template_default':'main_template',
+	  \ 'template_ext':'.tpl'},
+	  \ {'path':'/home/bigeagle/documents/Dropbox/xdlinux/wiki',
+	  \ 'path_html':'/srv/http/wiki/xdlinux/',
+	  \ 'template_path':'/srv/http/wiki/xdlinux/',
+	  \	'template_default':'main_template',
 	  \ 'template_ext':'.tpl'}]
 
 let g:vimwiki_folding = 1
@@ -526,6 +535,7 @@ let g:tagbar_type_nc = {
 \ }
 ""======== HTML JS =================
 let g:js_indent_log = 0
+
 
 "==========private info==============
 source ~/.vim/private.vim

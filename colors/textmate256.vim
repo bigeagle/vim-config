@@ -28,7 +28,7 @@ hi ModeMsg guifg=goldenrod ctermfg=172 cterm=none
 hi MoreMsg guifg=SeaGreen ctermfg=72  cterm=none
 hi NonText guifg=RoyalBlue guibg=#151825 ctermfg=232  cterm=none
 hi Question guifg=springgreen ctermfg=48  cterm=none
-hi Search guibg=#0099ff guifg=White ctermfg=231  cterm=none
+hi Search guibg=#0099ff guifg=White ctermfg=231 ctermbg=64  cterm=none
 hi Visual gui=none guifg=khaki guibg=olivedrab ctermfg=228 ctermbg=64 cterm=none
 
 hi SpecialKey guifg=#cbfe29 ctermfg=154  cterm=none
