@@ -1,4 +1,13 @@
 vim configuration of bigeagle
+====
 
+依赖关系 Rely
+-------
+* ctags
+* pyflakes
+* python-markdown
+* git
+
+子模块 Submodule
+-------
 $ git submodule update
-to update addons
