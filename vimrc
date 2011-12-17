@@ -206,11 +206,18 @@ let g:tex_flavor="tex"
 let g:EchoFuncLangsUsed = ["c","cpp"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "智能补全ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
-if &filetype=='c'||&filetype=='cpp'
-	map <C-F12> :!(ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .;find ./ -name "*.c" -or -name "*.h" -or -name "*.cpp" > cscope.files;cscope -bkq)<cr>:cs a cscope.out<cr>
-elseif  &filetype=='java'
-	map <C-F12> :!(find ./ -name "*.java" > cscope.files;cscope -bkq)<cr>:cs a cscope.out<cr>
-endif
+
+function! MapCtags()
+	if &filetype=='c' || &filetype=='cpp'
+		exec "!(ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .;find ./ -name \'*.c\' -or -name \"*.h\" -or -name \"*.cpp\" > cscope.files;cscope -bkq)"
+		exec "cs a cscope.out"
+	elseif &filetype=='java'
+		exec "!(find ./ -name \"*.java\" > cscope.files;cscope -bkq)"
+		exec "cs a cscope.out"
+	endif
+endfunc
+
+map <C-F12> :call MapCtags()<CR>
 
 let OmniCpp_DefaultNamespaces = ["std","_GLIBCXX_STD"]
 let OmniCpp_GlobalScopeSearch = 1  " 0 or 1
