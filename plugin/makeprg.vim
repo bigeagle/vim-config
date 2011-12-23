@@ -14,8 +14,8 @@ set cpo&vim
 let s:make_types = [
 			\ { 'glob': ['makefile', 'Makefile', 'GNUmakefile'],'makeprg': 'make' },
 			\ { 'glob': '*.c', 'compiler': 'gcc',
-				\ 'makeprg' : 'gcc -Wall -o %< %', 'cmd': '!./'.expand('%<') },
-			\ { 'glob': '*.cpp','compiler': 'g++', 'makeprg' : 'g++ -Wall -o %< %' },
+				\ 'makeprg' : 'gcc -o %< %', 'cmd': '!./'.expand('%<') },
+			\ { 'glob': '*.cpp','compiler': 'g++', 'makeprg' : 'g++ -o %< %', 'cmd': '!./'.expand('%<') },
 			\ { 'glob': '*.py', 'cmd': '!python2 %' },
 			\ { 'glob': '*.wiki', 'cmd': 'Vimwiki2HTML'},
 			\ { 'glob': 'build.xml', 'compiler': 'ant' },
@@ -64,7 +64,7 @@ func MakeType()
 	endfor
 	if s:setmake != 0
 		exec "make"
-		exec "copen"
+		"exec "copen"
 	endif
 	if s:setcmd != 0
 		exec s:cmd
