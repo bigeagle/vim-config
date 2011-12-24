@@ -104,7 +104,7 @@ augroup autoload_cscope
  "au BufEnter *.cc      call <SID>Cycle_csdb() | call <SID>Cycle_macros_menus()
  "au BufUnload *.[chly] call <SID>Unload_csdb() | call <SID>Cycle_macros_menus()
  "au BufUnload *.cc     call <SID>Unload_csdb() | call <SID>Cycle_macros_menus()
-	au FileType c,cpp,java,h.jsp call <SID>Cycle_csdb()
+	au FileType c,cpp,java,h.jsp,python call <SID>Cycle_csdb()
 	au BufUnload *.[chly] call <SID>Unload_csdb()
 	au BufUnload *.cc     call <SID>Unload_csdb()
 	au BufUnload *.java   call <SID>Unload_csdb()

@@ -216,7 +216,11 @@ function! MapCtags()
 	elseif &filetype=='java'
 		exec "!(find ./ -name \"*.java\" > cscope.files;cscope -bkq)"
 		exec "cs a cscope.out"
+	elseif &filetype=="python"
+		exec "!pycscope.py -R"
+		exec "cs a cscope.out"
 	endif
+
 endfunc
 
 map <C-F12> :call MapCtags()<CR>
