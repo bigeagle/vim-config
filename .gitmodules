@@ -10,3 +10,6 @@
 [submodule "bundle/VOoM"]
 	path = bundle/VOoM
 	url = git://github.com/vim-scripts/VOoM.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
