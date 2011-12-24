@@ -73,7 +73,8 @@ endfunction
 
 au FileType c,cpp,h,java,python,javascript setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
-au FileType html,js,css,htmldjango,html setlocal autoindent sw=2 ts=2 sts=2 expandtab
+au FileType html,css,htmldjango,html setlocal autoindent sw=2 ts=2 sts=2 expandtab
+au FileType javascript setlocal sw=4 ts=4 sts=4 expandtab
 au FileType changelog setlocal textwidth=76
 
 set shiftwidth=4
@@ -169,6 +170,7 @@ set foldlevel=100
 set foldenable
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 set foldlevel=100
+
 
 "程序每次产生一个文件名.
 set grepprg=grep\ -nH\ $*
