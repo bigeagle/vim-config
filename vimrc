@@ -34,6 +34,10 @@ set so=7
 "显示行号
 set number
 
+" 空格代替tab
+set expandtab
+au Filetype make set noexpandtab
+
 "语法高亮度显示
 syntax on
 
@@ -216,7 +220,7 @@ function! MapCtags()
 	elseif &filetype=='java'
 		exec "!(find ./ -name \"*.java\" > cscope.files;cscope -bkq)"
 		exec "cs a cscope.out"
-	elseif &filetype=="python"
+	elseif &filetype=~"python"
 		exec "!pycscope.py -R"
 		exec "cs a cscope.out"
 	endif
@@ -275,7 +279,7 @@ nmap <unique> <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <unique> <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python,python.django set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
