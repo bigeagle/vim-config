@@ -52,7 +52,7 @@ set runtimepath+=~/.vim
 au BufNewFile,BufRead *.lng  setf lingo
 au BufNewFile,BufRead *.asm set ft=masm
 au BufRead,BufNewFile *.txt setlocal ft=txt
-au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/ftplugin/XMLFolding.vim
+"au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/ftplugin/XMLFolding.vim
 "鼠标支持
 if has('mouse')
   set mouse=a
@@ -75,9 +75,12 @@ function! GnuIndent()
   setlocal tabstop=4
 endfunction
 
+"astyle as c and cpp styler
+autocmd FileType c,cpp,h set formatprg=astyle
+
 au FileType c,cpp,h,java,python,javascript setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
-au FileType html,css,htmldjango,html setlocal autoindent sw=2 ts=2 sts=2 expandtab
+au FileType html,css,htmldjango,html,xml setlocal autoindent sw=2 ts=2 sts=2 expandtab
 au FileType javascript setlocal sw=4 ts=4 sts=4 expandtab
 au FileType changelog setlocal textwidth=76
 
@@ -450,7 +453,7 @@ if has("autocmd")
   autocmd FileType xml,html,c,cs,h,java,perl,shell,bash,cpp,python,vim,php,ruby,s,S,tex,js set number
   autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
   autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o/*<ESC>'>o*/
-  autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
+  "autocmd FileType vim,c,java,bash,shell,perl,python setlocal textwidth=100
   autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/closetag.vim
   autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/html_autoclosetag.vim
   autocmd BufReadPost *

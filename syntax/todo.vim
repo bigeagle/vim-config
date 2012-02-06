@@ -13,12 +13,12 @@ endif
 syn match tododone        /DONE/
 syn match todoinprogress  /INPROGRESS/
 syn match todotodo        /TODO/
-syn match tododate	  /\d\{2}\/\d\{2}\/\d\{2}/
-syn region done start=/\*\*DONE/ end=/\*\*/
-syn region inprogress start=/\*\*INPROGRESS/ end=/\*\*/
-syn region matttodo start=/\*\*TODO/ end=/\*\*/
-syn region majorpoint start=/==>/ end=/-->/me=s-3 contains=ALL
-syn match minorpoint  /-->/
+syn match tododate	  /\d\{1,2}\/\d\{1,2}\/\d\{2}/
+syn region done start=/DONE:/ end=/\./
+syn region inprogress start=/INPROGRESS:/ end=/\./
+syn region matttodo start=/TODO:/ end=/\./
+syn region majorpoint start=/\*/ end=/-/me=s-3 contains=ALL
+syn match minorpoint  /-/
 syn region todomodified start=/Modified:/ end=/$/
 
 if !exists("did_todo_syntax_inits")
