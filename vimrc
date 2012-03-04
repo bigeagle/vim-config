@@ -429,22 +429,7 @@ nmap k gk
 nmap tl :TlistToggle<cr>
 nmap T :tabnew<cr>
 
-"自动匹配括号""""""""""""""""""""""""""""""""""""""""""""""""""""
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-
-function ClosePair(char)
-  if getline('.')[col('.') - 1] == a:char
-    return "\<Right>"
-  else
-    return a:char
-  endif
-endf
-
+"C花括号
 au FileType c,cpp,h,java,css,js,nginx inoremap  <buffer>  {<CR>	{<CR>}<Esc>O
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
