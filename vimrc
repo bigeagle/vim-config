@@ -481,12 +481,12 @@ let twitvim_enable_python = 1
 let twitvim_browser_cmd = 'firefox'
 let twitvim_old_retweet = 1
 "=======================================================
-let g:vimwiki_list=[{'path':'/home/bigeagle/documents/Dropbox/vimwiki',
+let g:vimwiki_list=[{'path':'~/Dropbox/vimwiki',
 	  \ 'path_html':'/srv/http/wiki/',
 	  \ 'template_path':'/srv/http/wiki/',
 	  \	'template_default':'main_template',
 	  \ 'template_ext':'.tpl'},
-	  \ {'path':'/home/bigeagle/documents/Dropbox/xdlinux/wiki',
+	  \ {'path':'~/Dropbox/xdlinux/wiki',
 	  \ 'path_html':'/srv/http/wiki/xdlinux/',
 	  \ 'template_path':'/srv/http/wiki/xdlinux/',
 	  \	'template_default':'main_template',
