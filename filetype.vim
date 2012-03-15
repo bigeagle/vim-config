@@ -14,7 +14,8 @@ func! s:FThtml()
       return
     endif
     if getline(n) =~ '{%\s*\(extends\|block\|load\|macro\|for\|if\)\>'
-      setf htmldjango
+      setf html
+      set syntax=htmldjango
       return
     endif
     let n = n + 1
