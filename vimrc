@@ -429,22 +429,7 @@ nmap k gk
 nmap tl :TlistToggle<cr>
 nmap T :tabnew<cr>
 
-"自动匹配括号""""""""""""""""""""""""""""""""""""""""""""""""""""
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-
-function ClosePair(char)
-  if getline('.')[col('.') - 1] == a:char
-    return "\<Right>"
-  else
-    return a:char
-  endif
-endf
-
+"C花括号
 au FileType c,cpp,h,java,css,js,nginx inoremap  <buffer>  {<CR>	{<CR>}<Esc>O
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -496,12 +481,12 @@ let twitvim_enable_python = 1
 let twitvim_browser_cmd = 'firefox'
 let twitvim_old_retweet = 1
 "=======================================================
-let g:vimwiki_list=[{'path':'/home/bigeagle/documents/Dropbox/vimwiki',
+let g:vimwiki_list=[{'path':'~/Dropbox/vimwiki',
 	  \ 'path_html':'/srv/http/wiki/',
 	  \ 'template_path':'/srv/http/wiki/',
 	  \	'template_default':'main_template',
 	  \ 'template_ext':'.tpl'},
-	  \ {'path':'/home/bigeagle/documents/Dropbox/xdlinux/wiki',
+	  \ {'path':'~/Dropbox/xdlinux/wiki',
 	  \ 'path_html':'/srv/http/wiki/xdlinux/',
 	  \ 'template_path':'/srv/http/wiki/xdlinux/',
 	  \	'template_default':'main_template',
