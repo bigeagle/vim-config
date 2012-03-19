@@ -344,6 +344,7 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""
 nmap nt :NERDTree<cr>
 let NERDTreeWinSize=25
+let NERDTreeIgnore = ['\.pyc$']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
