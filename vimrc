@@ -66,7 +66,7 @@ set autoindent
 " 为C程序提供自动缩进
 set smartindent
 
-au FileType c,cpp,h,java,javascript,nginx,html,htmldjango setlocal cindent
+au FileType c,cpp,h,java,javascript,html,htmldjango setlocal cindent
 
 " 使用C样式的缩进
 function! GnuIndent()
