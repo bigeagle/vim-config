@@ -22,6 +22,3 @@
 [submodule "bundle/vim-pandoc"]
 	path = bundle/vim-pandoc
     url = https://github.com/vim-pandoc/vim-pandoc.git
-[submodule "bundle/vim-indent-guides"]
-	path = bundle/vim-indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git

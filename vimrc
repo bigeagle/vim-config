@@ -2,8 +2,8 @@ set iskeyword+=_,$,@,%,#,-
 set showcmd
 
 if has("autocmd")
-  autocmd BufRead *.txt set tw=78
-  autocmd BufReadPost *
+    autocmd BufRead *.txt set tw=78
+    autocmd BufReadPost *
         \ if line("'\"") > 0 && line ("'\"") <= line("$") |
         \   exe "normal g'\"" |
         \ endif
@@ -12,20 +12,20 @@ endif
 "配色
 " Avoid clearing hilight definition in plugins
 if !exists("g:vimrc_loaded")
-  colorscheme textmate256
-  if has("gui_running")
-    "colorscheme textmate
-    set guioptions-=T "隐藏工具栏
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=m
-    set gfn=monaco\ 9
-    set gfw=黑体-简
-    set langmenu=en_US
-    set linespace=4
-    "set columns=195
-    "set lines=45
-  endif " has
+    colorscheme textmate256
+    if has("gui_running")
+        "colorscheme textmate
+        set guioptions-=T "隐藏工具栏
+        set guioptions-=L
+        set guioptions-=r
+        set guioptions-=m
+        set gfn=monaco\ 9
+        set gfw=黑体-简
+        set langmenu=en_US
+        set linespace=4
+        "set columns=195
+        "set lines=45
+    endif " has
 endif " exists(...)
 
 "光标在窗口上下边界时距离边界7行即开始滚屏
@@ -55,9 +55,9 @@ au BufRead,BufNewFile *.txt setlocal ft=txt
 "au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/ftplugin/XMLFolding.vim
 "鼠标支持
 if has('mouse')
-  set mouse=a
-  set selection=exclusive
-  set selectmode=mouse,key
+    set mouse=a
+    set selection=exclusive
+    set selectmode=mouse,key
 endif
 
 " 继承前一行的缩进方式，特别适用于多行注释
@@ -70,9 +70,9 @@ au FileType c,cpp,h,java,javascript,html,htmldjango setlocal cindent
 
 " 使用C样式的缩进
 function! GnuIndent()
-  setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
-  setlocal shiftwidth=4
-  setlocal tabstop=4
+    setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
+    setlocal shiftwidth=4
+    setlocal tabstop=4
 endfunction
 
 "astyle as c and cpp styler
@@ -87,6 +87,9 @@ au FileType changelog setlocal textwidth=76
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+"set list
+"set listchars=tab:▸\ ,eol:¬
+
 
 " Recognize standard C++ headers
 au BufEnter /usr/include/c++/*    setf cpp
@@ -96,20 +99,20 @@ au BufEnter /usr/include/g++-3/*  setf cpp
 au BufEnter /usr/*                call GnuIndent()
 
 function! RemoveTrailingSpace()
-  if $VIM_HATE_SPACE_ERRORS != '0' &&
-        \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'vim')
-    normal m`
-    silent! :%s/\s\+$//e
-    normal ``
-  endif
+    if $VIM_HATE_SPACE_ERRORS != '0' &&
+                \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'vim')
+        normal m`
+        silent! :%s/\s\+$//e
+        normal ``
+    endif
 endfunction
 " Remove trailing spaces for C/C++ and Vim files
 au BufWritePre *                  call RemoveTrailingSpace()
 
 if &term=="xterm"
-  set t_Co=8
-  set t_Sb=^[[4%dm
-  set t_Sf=^[[3%dm
+    set t_Co=8
+    set t_Sb=^[[4%dm
+    set t_Sf=^[[3%dm
 endif
 
 " ambiwidth 默认值为 single。在其值为 single 时，
@@ -201,8 +204,8 @@ set diffopt+=vertical
 
 "LaTex Suite"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! SyncTexForward()
-  let execstr = "silent !okular --unique %:p:r.pdf\#src:".line(".")."%:p &"
-  exec execstr
+    let execstr = "silent !okular --unique %:p:r.pdf\#src:".line(".")."%:p &"
+    exec execstr
 endfunction
 
 let g:tex_flavor= "latex"
@@ -217,16 +220,16 @@ let g:EchoFuncLangsUsed = ["c","cpp"]
 "智能补全ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
 
 function! MapCtags()
-	if &filetype=='c' || &filetype=='cpp'
-		exec "!(ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .;find ./ -name \'*.c\' -or -name \"*.h\" -or -name \"*.cpp\" > cscope.files;cscope -bkq)"
-		exec "cs a cscope.out"
-	elseif &filetype=='java'
-		exec "!(find ./ -name \"*.java\" > cscope.files;cscope -bkq)"
-		exec "cs a cscope.out"
-	elseif &filetype=~"python"
-		exec "!pycscope.py -R"
-		exec "cs a cscope.out"
-	endif
+    if &filetype=='c' || &filetype=='cpp'
+        exec "!(ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .;find ./ -name \'*.c\' -or -name \"*.h\" -or -name \"*.cpp\" > cscope.files;cscope -bkq)"
+        exec "cs a cscope.out"
+    elseif &filetype=='java'
+        exec "!(find ./ -name \"*.java\" > cscope.files;cscope -bkq)"
+        exec "cs a cscope.out"
+    elseif &filetype=~"python"
+        exec "!pycscope.py -R"
+        exec "cs a cscope.out"
+    endif
 
 endfunc
 
@@ -265,11 +268,11 @@ let g:pydoc_cmd = "/usr/bin/pydoc2"
 " cscope setting
 
 if has("cscope")
-  set csprg=/usr/bin/cscope              "指定用来执行 cscope 的命令
-  set csto=1                             "先搜索tags标签文件，再搜索cscope数据库
-  set cst                                "使用|:cstag|(:cs find g)，而不是缺省的:tag
-  set nocsverb                           "不显示添加数据库是否成功
-  " add any database in current directory
+    set csprg=/usr/bin/cscope              "指定用来执行 cscope 的命令
+    set csto=1                             "先搜索tags标签文件，再搜索cscope数据库
+    set cst                                "使用|:cstag|(:cs find g)，而不是缺省的:tag
+    set nocsverb                           "不显示添加数据库是否成功
+    " add any database in current directory
 endif
 
 nmap <unique> <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -346,6 +349,12 @@ nmap nt :NERDTree<cr>
 let NERDTreeWinSize=25
 let NERDTreeIgnore = ['\.pyc$']
 
+""""""""""""""""""""""""""""""
+" Indent Guide
+""""""""""""""""""""""""""""""
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -395,30 +404,30 @@ vnoremap <C-h> :call NERDComment(1,"toggle") <cr>
 
 map <C-F5> :call Debug()<CR>
 func Debug()
-  exec "w"
-  "C程序
-  if &filetype == 'c'
-	let filename = expand("%<")
-    exec "!gcc -Wall % -g -o %<"
-    exec "ConqueTermVSplit gdb ".filename
+    exec "w"
+    "C程序
+    if &filetype == 'c'
+        let filename = expand("%<")
+        exec "!gcc -Wall % -g -o %<"
+        exec "ConqueTermVSplit gdb ".filename
 
-    "C++程序
-  elseif &filetype == 'cpp'
-	let filename = expand("%<")
-    exec "!g++ -Wall % -g -o %<"
-    exec "ConqueTermVSplit gdb ".filename
-    ""Java程序
-  elseif &filetype == 'java'
-    exec "!javac %"
-    exec "!jdb %<"
-  elseif &filetype == 'python'
-	let filename = expand("%")
-    exec "ConqueTermVSplit python2 -m pdb ".filename
-  elseif &filetype == 'vimwiki'
-    "exec /"!python2 %<"
-    exec "VimwikiAll2HTML"
-	exec "setf vimwiki"
-  endif
+        "C++程序
+    elseif &filetype == 'cpp'
+        let filename = expand("%<")
+        exec "!g++ -Wall % -g -o %<"
+        exec "ConqueTermVSplit gdb ".filename
+        ""Java程序
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!jdb %<"
+    elseif &filetype == 'python'
+        let filename = expand("%")
+        exec "ConqueTermVSplit python2 -m pdb ".filename
+    elseif &filetype == 'vimwiki'
+        "exec /"!python2 %<"
+        exec "VimwikiAll2HTML"
+        exec "setf vimwiki"
+    endif
 endfunc
 "结束定义Debug
 "
@@ -436,16 +445,16 @@ au FileType c,cpp,h,java,css,js,nginx inoremap  <buffer>  {<CR>	{<CR>}<Esc>O
 
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
 if has("autocmd")
-  autocmd FileType xml,html,c,cs,h,java,perl,shell,bash,cpp,python,vim,php,ruby,s,S,tex,js set number
-  autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
-  autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o/*<ESC>'>o*/
-  "autocmd FileType vim,c,java,bash,shell,perl,python setlocal textwidth=100
-  autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/closetag.vim
-  autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/html_autoclosetag.vim
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ exe " normal g`\"" |
-        \ endif
+    autocmd FileType xml,html,c,cs,h,java,perl,shell,bash,cpp,python,vim,php,ruby,s,S,tex,js set number
+    autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
+    autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o/*<ESC>'>o*/
+    "autocmd FileType vim,c,java,bash,shell,perl,python setlocal textwidth=100
+    autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/closetag.vim
+    autocmd Filetype html,xml,xsl,htmldjango,xhtml source ~/.vim/ftplugin/html_autoclosetag.vim
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \ exe " normal g`\"" |
+                \ endif
 endif "has("autocmd")
 
 "ab bsh #!/bin/bash<CR><CR>
@@ -457,22 +466,22 @@ au BufNewFile *.py call ScriptHeader()
 au BufNewFile *.sh call ScriptHeader()
 
 function ScriptHeader()
-  if &filetype == 'python'
-	let header = "#!/usr/bin/env python2"
-	let coding = "# -*- coding:utf8 -*-"
-  elseif &filetype == 'sh'
-	let header = "#!/bin/bash"
-  endif
-  let line = getline(1)
-  if line == header
-	return
-  endif
-  normal m'
-  call append(0,header)
-  if &filetype == 'python'
-    call append(1,coding)
-  endif
-  normal ''
+    if &filetype == 'python'
+        let header = "#!/usr/bin/env python2"
+        let coding = "# -*- coding:utf8 -*-"
+    elseif &filetype == 'sh'
+        let header = "#!/bin/bash"
+    endif
+    let line = getline(1)
+    if line == header
+        return
+    endif
+    normal m'
+    call append(0,header)
+    if &filetype == 'python'
+        call append(1,coding)
+    endif
+    normal ''
 endfunction
 
 
@@ -483,15 +492,15 @@ let twitvim_browser_cmd = 'firefox'
 let twitvim_old_retweet = 1
 "=======================================================
 let g:vimwiki_list=[{'path':'~/Dropbox/vimwiki',
-	  \ 'path_html':'/srv/http/wiki/',
-	  \ 'template_path':'/srv/http/wiki/',
-	  \	'template_default':'main_template',
-	  \ 'template_ext':'.tpl'},
-	  \ {'path':'~/Dropbox/xdlinux/wiki',
-	  \ 'path_html':'/srv/http/wiki/xdlinux/',
-	  \ 'template_path':'/srv/http/wiki/xdlinux/',
-	  \	'template_default':'main_template',
-	  \ 'template_ext':'.tpl'}]
+            \ 'path_html':'/srv/http/wiki/',
+            \ 'template_path':'/srv/http/wiki/',
+            \	'template_default':'main_template',
+            \ 'template_ext':'.tpl'},
+            \ {'path':'~/Dropbox/xdlinux/wiki',
+            \ 'path_html':'/srv/http/wiki/xdlinux/',
+            \ 'template_path':'/srv/http/wiki/xdlinux/',
+            \	'template_default':'main_template',
+            \ 'template_ext':'.tpl'}]
 
 let g:vimwiki_folding = 1
 let g:vimwiki_CJK_length = 1
@@ -518,27 +527,27 @@ let g:tagbar_width = 30
 nmap tb :TagbarToggle<cr>
 
 let g:tagbar_type_tex = {
-    \ 'ctagstype' : 'latex',
-    \ 'kinds'     : [
-        \ 's:sections',
-        \ 'g:graphics:1',
-        \ 'l:labels:1',
-        \ 'r:refs:1',
-        \ 'p:pagerefs:1'
-    \ ],
-    \ 'sort'    : 0
-\ }
+            \ 'ctagstype' : 'latex',
+            \ 'kinds'     : [
+            \ 's:sections',
+            \ 'g:graphics:1',
+            \ 'l:labels:1',
+            \ 'r:refs:1',
+            \ 'p:pagerefs:1'
+            \ ],
+            \ 'sort'    : 0
+            \ }
 
 let g:tagbar_type_nc = {
-    \ 'ctagstype' : 'nesc',
-    \ 'kinds'     : [
-        \ 'd:definition',
-        \ 'f:function',
-        \ 'c:command',
-        \ 'a:task',
-        \ 'e:event'
-    \ ],
-\ }
+            \ 'ctagstype' : 'nesc',
+            \ 'kinds'     : [
+            \ 'd:definition',
+            \ 'f:function',
+            \ 'c:command',
+            \ 'a:task',
+            \ 'e:event'
+            \ ],
+            \ }
 ""======== HTML JS =================
 let g:js_indent_log = 0
 
