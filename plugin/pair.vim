@@ -64,7 +64,15 @@ function! ClosePair(char)
 endf
 
 "inoremap ' <c-r>=CompleteQuote("'")<CR>
+
 function! CompleteQuote(quote)
+    let cur = getline('.')[col('.')-1]
+    let to_comp_array = [ '', ' ', '\t']
+
+    if index(to_comp_array, cur) == -1
+        return a:quote
+    end
+
     let ql = len(split(getline('.'), a:quote, 1))-1
     let slen = len(split(strpart(getline("."), 0, col(".")-1), a:quote, 1))-1
     let elen = len(split(strpart(getline("."), col(".")-1), a:quote, 1))-1
