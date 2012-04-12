@@ -63,8 +63,7 @@ function! ClosePair(char)
     endif
 endf
 
-inoremap ' <c-r>=CompleteQuote("'")<CR>
-inoremap " <c-r>=CompleteQuote('"')<CR>
+"inoremap ' <c-r>=CompleteQuote("'")<CR>
 
 function! CompleteQuote(quote)
     let cur = getline('.')[col('.')-1]
