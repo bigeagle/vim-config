@@ -1,13 +1,11 @@
 vim configuration of bigeagle
 ====
 
-依赖关系 Rely
--------
+``This Project Depends on these softwares``
+
 * ctags
 * pyflakes
 * python-markdown
 * git
 
-子模块 Submodule
--------
-$ git submodule update
+`pathogen` is used for plugin managemant, run `./update.sh` to init and update plugins.
