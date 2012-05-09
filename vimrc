@@ -90,7 +90,8 @@ set softtabstop=4
 
 set list
 "set listchars=tab:▸\ ,eol:¬
-set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:¬
+"set listchars=tab:..,trail:.,extends:#,nbsp:.,eol:¬
+set listchars=eol:¬
 
 " Recognize standard C++ headers
 au BufEnter /usr/include/c++/*    setf cpp
@@ -331,7 +332,7 @@ let g:nerdtree_tabs_open_on_gui_startup=1
 
 let NERDTreeWinSize=25
 let NERDTreeIgnore = ['\.pyc$']
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI=0
 let NERDTreeDirArrows=1
 
 """"""""""""""""""""""""""""""
