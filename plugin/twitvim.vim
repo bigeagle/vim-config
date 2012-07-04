@@ -728,7 +728,7 @@ function! s:do_oauth()
 	    return [-2, '', '']
 	endif
     endif
-
+    echo auth_url
     call inputsave()
     let pin = input("Enter Twitter OAuth PIN: ")
     call inputrestore()

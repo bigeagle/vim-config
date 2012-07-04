@@ -1,33 +1,36 @@
 [submodule "vim-fugitive"]
       path = bundle/vim-fugitive
       url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/zencoding"]
-	path = bundle/zencoding
-	url = https://github.com/mattn/zencoding-vim.git
-[submodule "bundle/Mark"]
-	path = bundle/Mark
-	url = git://github.com/vim-scripts/Mark--Karkat.git
-[submodule "bundle/VOoM"]
-	path = bundle/VOoM
-	url = git://github.com/vim-scripts/VOoM.git
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/session"]
-	path = bundle/session
-	url = git://github.com/vim-scripts/session.vim--Odding.git
-[submodule "bundle/markdown"]
-	path = bundle/markdown
-	url = https://github.com/tpope/vim-markdown.git
-[submodule "bundle/vim-pandoc"]
-	path = bundle/vim-pandoc
+[submodule "zencoding"]
+    path = bundle/zencoding
+    url = https://github.com/mattn/zencoding-vim.git
+[submodule "Mark"]
+    path = bundle/Mark
+    url = git://github.com/vim-scripts/Mark--Karkat.git
+[submodule "VOoM"]
+    path = bundle/VOoM
+    url = git://github.com/vim-scripts/VOoM.git
+[submodule "tagbar"]
+    path = bundle/tagbar
+    url = https://github.com/majutsushi/tagbar.git
+[submodule "session"]
+    path = bundle/session
+    url = git://github.com/vim-scripts/session.vim--Odding.git
+[submodule "markdown"]
+    path = bundle/markdown
+    url = https://github.com/tpope/vim-markdown.git
+[submodule "vim-pandoc"]
+    path = bundle/vim-pandoc
     url = https://github.com/vim-pandoc/vim-pandoc.git
-[submodule "bundle/vim-nerdtree-tabs"]
-	path = bundle/vim-nerdtree-tabs
-	url = git://github.com/jistr/vim-nerdtree-tabs.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/vim-powerline"]
-	path = bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim-nerdtree-tabs"]
+    path = bundle/vim-nerdtree-tabs
+    url = git://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "nerdtree"]
+    path = bundle/nerdtree
+    url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim-powerline"]
+    path = bundle/vim-powerline
+    url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
