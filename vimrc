@@ -88,10 +88,9 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-set list
+"set list
 "set listchars=tab:▸\ ,eol:¬
 "set listchars=tab:..,trail:.,extends:#,nbsp:.,eol:¬
-set listchars=eol:¬
 
 " Recognize standard C++ headers
 au BufEnter /usr/include/c++/*    setf cpp
@@ -323,7 +322,7 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""
 " NERDTree插件的快捷键
 """"""""""""""""""""""""""""""
-nmap nt :NERDTreeMirrorToggle<cr>
+nmap nt :NERDTreeToggle<cr>
 nmap nT :NERDTreeTabsToggle<cr>
 let NERDTreeShowBookmarks=0
 let NERDTreeMouseMode=2
@@ -544,6 +543,7 @@ let g:tagbar_type_nc = {
 ""======== HTML JS =================
 let g:js_indent_log = 0
 
+let g:session_autosave = 'yes'
 
 "==========private info==============
 source ~/.vim/private.vim
