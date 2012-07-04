@@ -480,7 +480,7 @@ endfunction
 "=======================================================
 "twitter vim
 let twitvim_enable_python = 1
-let twitvim_browser_cmd = 'firefox'
+let twitvim_browser_cmd = 'chromium'
 let twitvim_old_retweet = 1
 "=======================================================
 let g:vimwiki_list=[{'path':'~/Dropbox/vimwiki',
