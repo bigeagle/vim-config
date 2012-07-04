@@ -18,9 +18,10 @@ endif
 let colors_name = "textmate256"
 hi Normal guifg=#F8F8F8 guibg=#090B18 ctermfg=254 cterm=none
 hi Cursor guifg=Black guibg=Yellow ctermfg=16 cterm=none
+hi SignColumn guifg=#F8F8F8 guibg=#191a22 ctermfg=254 ctermbg=none
 
 hi LineNr guifg=grey30 ctermfg=239  cterm=none
-hi VertSplit guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241 ctermbg=235 cterm=none
+hi VertSplit guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241 ctermbg=236 cterm=none
 hi Folded guibg=black guifg=khaki ctermfg=228 ctermbg=none cterm=none
 hi FoldColumn guibg=black guifg=grey20 ctermfg=236  cterm=none
 hi IncSearch guibg=black guifg=yellow ctermfg=226  cterm=none

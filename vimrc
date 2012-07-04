@@ -543,7 +543,13 @@ let g:tagbar_type_nc = {
 ""======== HTML JS =================
 let g:js_indent_log = 0
 
+""=== Session ===
 let g:session_autosave = 'yes'
+
+""=== Syntastics ==
+let g:syntastic_quiet_warnings=1
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
 
 "==========private info==============
 source ~/.vim/private.vim
