@@ -1,3 +1,4 @@
+call pathogen#infect()
 set iskeyword+=_,$,@,%,#,-
 set showcmd
 
