@@ -80,7 +80,7 @@ autocmd FileType c,cpp,h set formatprg=astyle
 
 au FileType c,cpp,h,java,python,javascript setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
-au FileType html,css,htmldjango,html,xml setlocal autoindent sw=2 ts=2 sts=2 expandtab
+au FileType html,css,htmldjango,html,xml setlocal autoindent sw=2 ts=2 sts=2 fdm=manual expandtab
 au FileType javascript setlocal sw=4 ts=4 sts=4 expandtab
 au FileType changelog setlocal textwidth=76
 
@@ -287,7 +287,7 @@ nmap <unique> <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <unique> <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd FileType python,python.django set omnifunc=pythoncomplete#Complete
+"autocmd FileType python,python.django set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -301,6 +301,8 @@ inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
 inoremap <expr> <C-J>      pumvisible()?"\<PageDown>\<C-N>\<C-P>":"\<C-X><C-O>"
 inoremap <expr> <C-K>      pumvisible()?"\<PageUp>\<C-P>\<C-N>":"\<C-K>"
 "inoremap <expr> <C-U>      pumvisible()?"\<C-E>":"\<C-U>"
+
+nmap <leader>ss :syntax sync fromstart<CR>
 
 " CTags的设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -552,6 +554,9 @@ let g:session_autosave = 'yes'
 let g:syntastic_quiet_warnings=1
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+
+""=== python-mode ===
+source ~/.vim/config/python-mode.vim
 
 "==========private info==============
 source ~/.vim/private.vim
