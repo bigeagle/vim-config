@@ -1,4 +1,6 @@
 call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+
 set iskeyword+=_,$,@,%,#,-
 set showcmd
 
@@ -21,7 +23,7 @@ if !exists("g:vimrc_loaded")
         set guioptions-=r
         set guioptions-=m
         set gfn=monaco\ 9
-        set gfw=黑体-简
+        set gfw=STHeiti
         set langmenu=en_US
         set linespace=4
         "set columns=195
@@ -42,7 +44,6 @@ au Filetype make set noexpandtab
 "语法高亮度显示
 syntax on
 
-call pathogen#runtime_append_all_bundles()
 
 "检测文件的类型 开启codesnip
 filetype on
@@ -238,54 +239,11 @@ endfunc
 
 map <C-F12> :call MapCtags()<CR>
 
-let OmniCpp_DefaultNamespaces = ["std","_GLIBCXX_STD"]
-let OmniCpp_GlobalScopeSearch = 1  " 0 or 1
-let OmniCpp_NamespaceSearch = 1   " 0 ,  1 or 2
-let OmniCpp_DisplayMode = 1
-let OmniCpp_ShowScopeInAbbr = 0
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteArrow = 1
-let OmniCpp_MayCompleteScope = 1
-
-
-"-----------------------------------------------------------------
-" plugin - NeoComplCache.vim    自动补全插件
-"-----------------------------------------------------------------
-"let g:neocomplcache_enable_at_startup = 1
-"let g:NeoComplCache_SmartCase = 1
-"let g:NeoComplCache_TagsAutoUpdate = 1
-"let g:NeoComplCache_EnableInfo = 1
-"let g:NeoComplCache_EnableCamelCaseCompletion = 1
-"let g:NeoComplCache_MinSyntaxLength = 3
-"let g:NeoComplCache_EnableSkipCompletion = 1
-"let g:NeoComplCache_SkipInputTime = '0.5'
-"let g:NeoComplCache_SnippetsDir = $VIMFILES.'/snippets'
-"let g:neocomplcache_disable_auto_complete=1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pydoc_cmd = "/usr/bin/pydoc2"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope setting
-
-if has("cscope")
-    set csprg=/usr/bin/cscope              "指定用来执行 cscope 的命令
-    set csto=1                             "先搜索tags标签文件，再搜索cscope数据库
-    set cst                                "使用|:cstag|(:cs find g)，而不是缺省的:tag
-    set nocsverb                           "不显示添加数据库是否成功
-    " add any database in current directory
-endif
-
-nmap <unique> <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <unique> <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <unique> <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <unique> <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <unique> <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <unique> <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <unique> <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <unique> <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "autocmd FileType python,python.django set omnifunc=pythoncomplete#Complete
@@ -313,7 +271,6 @@ au FileType cpp set tags+=~/.vim/tags/cpp
 au FileType c,h set tags+=~/.vim/tags/glib
 "set tags+=/home/bigeagle/.vim/tags/qt4
 
-
 """""""""""""""""""""""""""""
 "miniBufferExplor
 """""""""""""""""""""""""""""
@@ -321,22 +278,6 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-
-""""""""""""""""""""""""""""""
-" NERDTree插件的快捷键
-""""""""""""""""""""""""""""""
-nmap nt :NERDTreeToggle<cr>
-nmap nT :NERDTreeTabsToggle<cr>
-let NERDTreeShowBookmarks=0
-let NERDTreeMouseMode=2
-let g:nerdtree_tabs_focus_on_files=1
-let g:nerdtree_tabs_open_on_gui_startup=1
-
-let NERDTreeWinSize=25
-let NERDTreeIgnore = ['\.pyc$']
-let NERDTreeMinimalUI=0
-let NERDTreeDirArrows=1
-
 """"""""""""""""""""""""""""""
 " vim-powerline
 """"""""""""""""""""""""""""""
@@ -363,39 +304,6 @@ vnoremap <C-h> :call NERDComment(1,"toggle") <cr>
 
 "设置程序的运行和调试的快捷键F5和Ctrl-F5
 "map <F5> :call CompileRun()<CR>
-
-""定义CompileRun函数，用来调用进行编译和运行
-"func CompileRun()
-"  exec "w"
-"  "C程序
-"  if &filetype == 'c'
-"   let filename = expand("%<")
-"    exec "!gcc -Wall -g % -o %<"
-"    exec "ConqueTermVSplit ./".filename
-"   "exec \"! ./%<"
-"    "C++
-"  elseif &filetype == 'cpp'
-"   let filename = expand("%<")
-"    exec "!g++ -Wall -g % -o %<"
-"    exec "ConqueTermVSplit ./".filename
-"    "JAVA
-"  elseif &filetype == 'java'
-"   let filename = expand("%<")
-"    exec "!javac %"
-"    exec "!java %<"
-"  elseif &filetype == 'python'
-"    "exec /"!python2 %<"
-"   let filename = expand("%")
-"    exec "ConqueTermVSplit python2 ".filename
-"  elseif &filetype == 'vimwiki'
-"    "exec /"!python2 %<"
-"    exec "Vimwiki2HTML"
-"  elseif &filetype == 'nc'
-"    "exec /"!python2 %<"
-"    exec "make micaz"
-"  endif
-"endfunc
-"结束定义CompileRun
 
 map <C-F5> :call Debug()<CR>
 func Debug()
@@ -452,11 +360,6 @@ if has("autocmd")
                 \ endif
 endif "has("autocmd")
 
-"ab bsh #!/bin/bash<CR><CR>
-"ab ppy #!/usr/bin/python2<CR><CR>
-"ab ppl #!/usr/bin/perl<CR><CR><{}>
-"ab rru #!/usr/bin/ruby<CR><CR><{}>
-
 au BufNewFile *.py call ScriptHeader()
 au BufNewFile *.sh call ScriptHeader()
 
@@ -485,66 +388,9 @@ endfunction
 "=======================================================
 "twitter vim
 let twitvim_enable_python = 1
-let twitvim_browser_cmd = 'chromium'
+let twitvim_browser_cmd = 'google-chrome'
 let twitvim_old_retweet = 1
-"=======================================================
-let g:vimwiki_list=[{'path':'~/Dropbox/vimwiki',
-            \ 'path_html':'/srv/http/wiki/',
-            \ 'template_path':'/srv/http/wiki/',
-            \   'template_default':'main_template',
-            \ 'template_ext':'.tpl'},
-            \ {'path':'~/Dropbox/xdlinux/wiki',
-            \ 'path_html':'/srv/http/wiki/xdlinux/',
-            \ 'template_path':'/srv/http/wiki/xdlinux/',
-            \   'template_default':'main_template',
-            \ 'template_ext':'.tpl'}]
 
-let g:vimwiki_folding = 1
-let g:vimwiki_CJK_length = 1
-let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
-map <leader>tt <Plug>VimwikiToggleListItem
-let g:vimwiki_camel_case = 0
-let g:vimwiki_hl_headers = 1
-let g:vimwiki_hl_cb_checked = 1
-"========================================================
-"let g:newrw_ftp_cmd = 'lftp'
-let g:netrw_altv          = 1
-let g:netrw_fastbrowse    = 2
-let g:netrw_keepdir       = 1
-let g:netrw_liststyle     = 3
-let g:netrw_retmap        = 1
-let g:netrw_silent        = 1
-let g:netrw_special_syntax= 1
-let g:netrw_browse_split = 3
-let g:netrw_banner = 0
-"===========django====================================
-"
-"==========tagbar.vim===============
-let g:tagbar_width = 30
-nmap tb :TagbarToggle<cr>
-
-let g:tagbar_type_tex = {
-            \ 'ctagstype' : 'latex',
-            \ 'kinds'     : [
-            \ 's:sections',
-            \ 'g:graphics:1',
-            \ 'l:labels:1',
-            \ 'r:refs:1',
-            \ 'p:pagerefs:1'
-            \ ],
-            \ 'sort'    : 0
-            \ }
-
-let g:tagbar_type_nc = {
-            \ 'ctagstype' : 'nesc',
-            \ 'kinds'     : [
-            \ 'd:definition',
-            \ 'f:function',
-            \ 'c:command',
-            \ 'a:task',
-            \ 'e:event'
-            \ ],
-            \ }
 ""======== HTML JS =================
 let g:js_indent_log = 0
 
@@ -556,8 +402,12 @@ let g:syntastic_quiet_warnings=1
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
-""=== python-mode ===
 source ~/.vim/config/python-mode.vim
+source ~/.vim/config/tagbar.vim
+source ~/.vim/config/nerdtree.vim
+source ~/.vim/config/vimwiki.vim
+source ~/.vim/config/cscope.vim
+source ~/.vim/config/omnicpp.vim
 
 "==========private info==============
 source ~/.vim/private.vim

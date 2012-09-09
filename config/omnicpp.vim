@@ -1,0 +1,10 @@
+let OmniCpp_DefaultNamespaces = ["std","_GLIBCXX_STD"]
+let OmniCpp_GlobalScopeSearch = 1  " 0 or 1
+let OmniCpp_NamespaceSearch = 1   " 0 ,  1 or 2
+let OmniCpp_DisplayMode = 1
+let OmniCpp_ShowScopeInAbbr = 0
+let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
