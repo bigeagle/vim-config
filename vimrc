@@ -343,7 +343,7 @@ nmap tl :TlistToggle<cr>
 nmap T :tabnew<cr>
 
 "C花括号
-au FileType c,cpp,h,java,css,js,nginx inoremap  <buffer>  {<CR> {<CR>}<Esc>O
+au FileType c,cpp,h,java,css,js,nginx,scala,go inoremap  <buffer>  {<CR> {<CR>}<Esc>O
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
