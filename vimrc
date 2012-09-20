@@ -397,17 +397,13 @@ let g:js_indent_log = 0
 ""=== Session ===
 let g:session_autosave = 'yes'
 
-""=== Syntastics ==
-let g:syntastic_quiet_warnings=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-
 source ~/.vim/config/python-mode.vim
 source ~/.vim/config/tagbar.vim
 source ~/.vim/config/nerdtree.vim
 source ~/.vim/config/vimwiki.vim
 source ~/.vim/config/cscope.vim
 source ~/.vim/config/omnicpp.vim
+source ~/.vim/config/syntastic.vim
 
 "==========private info==============
 source ~/.vim/private.vim
