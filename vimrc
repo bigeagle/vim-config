@@ -23,7 +23,7 @@ if !exists("g:vimrc_loaded")
         set guioptions-=r
         set guioptions-=m
         set gfn=monaco\ 9
-        set gfw=STHeiti
+        set gfw=STHeiti\ 10
         set langmenu=en_US
         set linespace=4
         "set columns=195
