@@ -343,7 +343,7 @@ nmap tl :TlistToggle<cr>
 nmap T :tabnew<cr>
 
 "C花括号
-au FileType c,cpp,h,java,css,js,nginx inoremap  <buffer>  {<CR> {<CR>}<Esc>O
+au FileType c,cpp,h,java,css,js,nginx,scala,go inoremap  <buffer>  {<CR> {<CR>}<Esc>O
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
@@ -397,17 +397,13 @@ let g:js_indent_log = 0
 ""=== Session ===
 let g:session_autosave = 'yes'
 
-""=== Syntastics ==
-let g:syntastic_quiet_warnings=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-
 source ~/.vim/config/python-mode.vim
 source ~/.vim/config/tagbar.vim
 source ~/.vim/config/nerdtree.vim
 source ~/.vim/config/vimwiki.vim
 source ~/.vim/config/cscope.vim
 source ~/.vim/config/omnicpp.vim
+source ~/.vim/config/syntastic.vim
 
 "==========private info==============
 source ~/.vim/private.vim

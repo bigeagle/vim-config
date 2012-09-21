@@ -23,3 +23,4 @@ let g:tagbar_type_nc = {
             \ 'e:event'
             \ ],
             \ }
+

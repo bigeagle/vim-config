@@ -1,5 +1,3 @@
-–python-kinds=-i
-
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
@@ -23,10 +21,8 @@
 --regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
 --regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
 
-
 --langdef=nesc
 --langmap=nesc:.nc
-
 --regex-nesc=/^module[ \t]*([a-zA-Z0-9_]+)/\1/d,definition/
 --regex-nesc=/^configuration[ \t]*([a-zA-Z0-9_]+)/\1/d,defiition/
 --regex-nesc=/^interface[ \t]*([a-zA-Z0-9_]+)/\1/d,definition/
@@ -35,3 +31,19 @@
 --regex-nesc=/^[ \t]*task[ \t]*([a-zA-Z0-9_]+)[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\1 \2/a,task/
 --regex-nesc=/^[ \t]*([a-zA-Z0-9_]+[*]*)[ \t]+([a-zA-Z0-9_]+)[ \t]*\([a-zA-Z0-9_*, \t]*\)[ \t]*[\{]{0,1}$/\1 \2/f,function/
 --regex-nesc=/^[ \t]*([a-zA-Z0-9_]+[*]*)[ \t]+([a-zA-Z0-9_]+)[ \t]*\([a-zA-Z0-9_*, \t]*\)[ \t]*\{/\1 \2/f,function/
+
+--langdef=Scala
+--langmap=Scala:.scala
+--regex-Scala=/^[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/c,classes/
+--regex-Scala=/^[ \t]*object[ \t]*([a-zA-Z0-9_]+)/\1/o,objects/
+--regex-Scala=/^[ \t]*trait[ \t]*([a-zA-Z0-9_]+)/\1/t,traits/
+--regex-Scala=/^[ \t]*case[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/r,cclasses/
+--regex-Scala=/^[ \t]*abstract[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/a,aclasses/
+--regex-Scala=/^[ \t]*def[ \t]*([a-zA-Z0-9_=]+)[ \t]*.*[:=]/\1/m,methods/
+--regex-Scala=/[ \t]*val[ \t]*([a-zA-Z0-9_]+)[ \t]*[:=]/\1/V,values/
+--regex-Scala=/[ \t]*var[ \t]*([a-zA-Z0-9_]+)[ \t]*[:=]/\1/v,variables/
+--regex-Scala=/^[ \t]*type[ \t]*([a-zA-Z0-9_]+)[ \t]*[\[<>=]/\1/T,types/
+--regex-Scala=/^[ \t]*import[ \t]*([a-zA-Z0-9_{}., \t=>]+$)/\1/i,includes/
+--regex-Scala=/^[ \t]*package[ \t]*([a-zA-Z0-9_.]+$)/\1/p,packages/
+
+–python-kinds=-i
