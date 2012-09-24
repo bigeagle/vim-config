@@ -1,72 +1,96 @@
 [submodule "vim-fugitive"]
-      path = bundle/vim-fugitive
-      url = https://github.com/tpope/vim-fugitive.git
+    path = bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive.git
+    ignore = untracked
 [submodule "zencoding"]
     path = bundle/zencoding
     url = https://github.com/mattn/zencoding-vim.git
+    ignore = untracked
 [submodule "Mark"]
     path = bundle/Mark
     url = git://github.com/vim-scripts/Mark--Karkat.git
+    ignore = untracked
 [submodule "VOoM"]
     path = bundle/VOoM
     url = git://github.com/vim-scripts/VOoM.git
+    ignore = untracked
 [submodule "tagbar"]
     path = bundle/tagbar
     url = https://github.com/majutsushi/tagbar.git
+    ignore = untracked
 [submodule "session"]
     path = bundle/session
     url = git://github.com/vim-scripts/session.vim--Odding.git
+    ignore = untracked
 [submodule "markdown"]
     path = bundle/markdown
     url = https://github.com/tpope/vim-markdown.git
+    ignore = untracked
 [submodule "vim-pandoc"]
     path = bundle/vim-pandoc
     url = https://github.com/vim-pandoc/vim-pandoc.git
+    ignore = untracked
 [submodule "vim-nerdtree-tabs"]
     path = bundle/vim-nerdtree-tabs
     url = git://github.com/jistr/vim-nerdtree-tabs.git
+    ignore = untracked
 [submodule "nerdtree"]
     path = bundle/nerdtree
     url = git://github.com/scrooloose/nerdtree.git
+    ignore = untracked
 [submodule "vim-powerline"]
     path = bundle/vim-powerline
     url = git://github.com/Lokaltog/vim-powerline.git
+    ignore = untracked
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+    path = bundle/syntastic
+    url = git://github.com/scrooloose/syntastic.git
+    ignore = untracked
 [submodule "bundle/css3"]
-	path = bundle/css3
-	url = git://github.com/hail2u/vim-css3-syntax.git
+    path = bundle/css3
+    url = git://github.com/hail2u/vim-css3-syntax.git
+    ignore = untracked
 [submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
-	url = git://github.com/pangloss/vim-javascript.git
+    path = bundle/vim-javascript
+    url = git://github.com/pangloss/vim-javascript.git
+    ignore = untracked
 [submodule "bundle/vim-easymotion"]
-	path = bundle/vim-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion/
+    path = bundle/vim-easymotion
+    url = https://github.com/Lokaltog/vim-easymotion/
+    ignore = untracked
 [submodule "bundle/python-mode"]
-	path = bundle/python-mode
-	url = https://github.com/klen/python-mode
+    path = bundle/python-mode
+    url = https://github.com/klen/python-mode
+    ignore = untracked
 [submodule "bundle/vimwiki"]
-	path = bundle/vimwiki
-	url = git://github.com/vim-scripts/vimwiki.git
+    path = bundle/vimwiki
+    url = git://github.com/vim-scripts/vimwiki.git
+    ignore = untracked
 [submodule "bundle/snipmate-snippets"]
-	path = bundle/snipmate-snippets
-	url = git://github.com/honza/snipmate-snippets.git
+    path = bundle/snipmate-snippets
+    url = git://github.com/honza/snipmate-snippets.git
+    ignore = untracked
 [submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git://github.com/garbas/vim-snipmate.git
+    path = bundle/snipmate
+    url = git://github.com/garbas/vim-snipmate.git
+    ignore = untracked
 [submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+    path = bundle/vim-addon-mw-utils
+    url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+    ignore = untracked
 [submodule "bundle/tlib_vim"]
-	path = bundle/tlib_vim
-	url = git://github.com/tomtom/tlib_vim.git
+    path = bundle/tlib_vim
+    url = git://github.com/tomtom/tlib_vim.git
+    ignore = untracked
 [submodule "bundle/vim-scala"]
-	path = bundle/vim-scala
-	url = git://github.com/derekwyatt/vim-scala.git
+    path = bundle/vim-scala
+    url = git://github.com/derekwyatt/vim-scala.git
+    ignore = untracked
 [submodule "bundle/vim-sbt"]
-	path = bundle/vim-sbt
-	url = https://github.com/derekwyatt/vim-sbt
+    path = bundle/vim-sbt
+    url = https://github.com/derekwyatt/vim-sbt
+    ignore = untracked
 [submodule "bundle/sbt-vim"]
-	path = bundle/sbt-vim
-	url = git://github.com/ktvoelker/sbt-vim.git
+    path = bundle/sbt-vim
+    url = git://github.com/ktvoelker/sbt-vim.git
+    ignore = untracked
