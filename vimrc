@@ -214,7 +214,6 @@ endfunction
 
 let g:tex_flavor= "latex"
 ""自动载入latex-suite菜单
-let g:tex_flavor="tex"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
