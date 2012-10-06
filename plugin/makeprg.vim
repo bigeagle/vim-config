@@ -19,7 +19,8 @@ let s:make_types = [
 			\ { 'glob': '*.py', 'cmd': '!python2 %' },
 			\ { 'glob': '*.wiki', 'cmd': 'Vimwiki2HTML'},
 			\ { 'glob': 'build.xml', 'compiler': 'ant' },
-			\ { 'glob': '*.java', 'compiler': 'javac', 'makeprg' : 'javac %' }
+			\ { 'glob': '*.java', 'compiler': 'javac', 'makeprg' : 'javac %' },
+			\ { 'glob': '*.scala', 'compiler': 'fsc', 'makeprg' : 'sbt compile' }
 			\ ]
 
 if exists("makeprgs_make_types")
