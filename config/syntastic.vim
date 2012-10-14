@@ -7,4 +7,6 @@ let g:syntastic_warning_symbol='⚠'
 
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'php', 'python' ],
-                           \ 'passive_filetypes': [] }
+                           \ 'passive_filetypes': ['scala'] }
+
+map <leader>sc :SyntasticCheck<CR>
