@@ -72,6 +72,6 @@ func MakeType()
 	endif
 endfunc
 
-map <F5> :call MakeType()<CR>
+:command Make call MakeType()<CR>
 
 let &cpo = s:save_cpo
