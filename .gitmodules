@@ -94,3 +94,9 @@
     path = bundle/sbt-vim
     url = git://github.com/ktvoelker/sbt-vim.git
     ignore = untracked
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = git://github.com/tyok/ack.vim.git
+[submodule "bundle/nerdtree-ack.git"]
+	path = bundle/nerdtree-ack.git
+	url = git://github.com/tyok/nerdtree-ack.git
