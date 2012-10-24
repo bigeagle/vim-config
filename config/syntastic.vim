@@ -9,4 +9,5 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'php', 'python' ],
                            \ 'passive_filetypes': ['scala'] }
 
+let g:syntastic_python_checker_args = "--ignore=E225,E401,E501"
 map <leader>sc :SyntasticCheck<CR>

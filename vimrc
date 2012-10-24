@@ -280,9 +280,7 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""
 " vim-powerline
 """"""""""""""""""""""""""""""
-if has("gui_running")
-    let g:Powerline_symbols='unicode'
-endif
+let g:Powerline_symbols='fancy'
 
 """"""""""""""""""""""""""""""
 " Indent Guide
