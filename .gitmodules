@@ -10,10 +10,6 @@
     path = bundle/Mark
     url = git://github.com/vim-scripts/Mark--Karkat.git
     ignore = untracked
-[submodule "VOoM"]
-    path = bundle/VOoM
-    url = git://github.com/vim-scripts/VOoM.git
-    ignore = untracked
 [submodule "tagbar"]
     path = bundle/tagbar
     url = https://github.com/majutsushi/tagbar.git
@@ -97,3 +93,9 @@
 [submodule "bundle/indent-guides"]
 	path = bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = git://github.com/tyok/ack.vim.git
+[submodule "bundle/nerdtree-ack.git"]
+	path = bundle/nerdtree-ack.git
+	url = git://github.com/tyok/nerdtree-ack.git

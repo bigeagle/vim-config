@@ -22,8 +22,8 @@ if !exists("g:vimrc_loaded")
         set guioptions-=L
         set guioptions-=r
         set guioptions-=m
-        set gfn=monaco\ 9
-        set gfw=STHeiti\ 10
+        set gfn=Ubuntu\ Mono\ 11
+        set gfw=STHeiti\ 11
         set langmenu=en_US
         set linespace=4
         "set columns=195
@@ -67,6 +67,8 @@ set autoindent
 
 " 为C程序提供自动缩进
 set smartindent
+
+set modeline
 
 au FileType c,cpp,h,java,javascript,html,htmldjango setlocal cindent
 
@@ -280,9 +282,7 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""
 " vim-powerline
 """"""""""""""""""""""""""""""
-if has("gui_running")
-    let g:Powerline_symbols='unicode'
-endif
+let g:Powerline_symbols='fancy'
 
 """"""""""""""""""""""""""""""
 " Indent Guide
@@ -395,6 +395,9 @@ let g:js_indent_log = 0
 
 ""=== Session ===
 let g:session_autosave = 'yes'
+
+""==== ack ===
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 source ~/.vim/config/python-mode.vim
 source ~/.vim/config/tagbar.vim
