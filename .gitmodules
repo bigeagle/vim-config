@@ -99,3 +99,6 @@
 [submodule "bundle/nerdtree-ack.git"]
 	path = bundle/nerdtree-ack.git
 	url = git://github.com/tyok/nerdtree-ack.git
+[submodule "bundle/LanguageTool"]
+	path = bundle/LanguageTool
+	url = git://github.com/vim-scripts/LanguageTool.git
