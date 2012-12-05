@@ -14,3 +14,5 @@ map <leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_camel_case = 0
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 1
+au FileType vimwiki setlocal autoindent sw=2 ts=2 sts=2 fdm=manual expandtab
+
