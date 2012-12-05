@@ -78,10 +78,6 @@
     path = bundle/tlib_vim
     url = git://github.com/tomtom/tlib_vim.git
     ignore = untracked
-[submodule "bundle/vim-scala"]
-    path = bundle/vim-scala
-    url = git://github.com/derekwyatt/vim-scala.git
-    ignore = untracked
 [submodule "bundle/vim-sbt"]
     path = bundle/vim-sbt
     url = https://github.com/derekwyatt/vim-sbt
@@ -99,3 +95,9 @@
 [submodule "bundle/nerdtree-ack.git"]
 	path = bundle/nerdtree-ack.git
 	url = git://github.com/tyok/nerdtree-ack.git
+[submodule "bundle/LanguageTool"]
+	path = bundle/LanguageTool
+	url = git://github.com/vim-scripts/LanguageTool.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = git://github.com/derekwyatt/vim-scala.git

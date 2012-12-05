@@ -1,9 +1,9 @@
 " 使用 colorpicker 程序获取颜色值(hex/rgba)"""""""""""""""
 function Colorpicker()
   if exists("g:last_color")
-    let color = substitute(system("colorpicker ".shellescape(g:last_color)), '\n', '', '')
+    let color = substitute(system("colorpicker ".shellescape(g:last_color)." 2>/dev/null"), '\n', '', '')
   else
-    let color = substitute(system("colorpicker"), '\n', '', '')
+    let color = substitute(system("colorpicker  2>/dev/null"), '\n', '', '')
   endif
   if v:shell_error == 1
     return ''
