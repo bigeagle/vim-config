@@ -101,3 +101,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = git://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/vim-cython"]
+	path = bundle/vim-cython
+	url = git://github.com/tshirtman/vim-cython.git
