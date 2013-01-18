@@ -8,13 +8,13 @@ let g:pymode_run_key = '<leader>r'
 
 
 " Load rope plugin
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 
 " Auto create and open ropeproject
-let g:pymode_rope_auto_project = 1
+let g:pymode_rope_auto_project = 0
 
 " Enable autoimport
-let g:pymode_rope_enable_autoimport = 1
+let g:pymode_rope_enable_autoimport = 0
 
 " Auto generate global cache
 let g:pymode_rope_autoimport_generate = 1

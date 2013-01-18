@@ -5,7 +5,7 @@ set iskeyword+=_,$,@,%,#,-
 set showcmd
 
 if has("autocmd")
-    autocmd BufRead *.txt set tw=78
+    "autocmd BufRead *.txt set tw=78
     autocmd BufReadPost *
         \ if line("'\"") > 0 && line ("'\"") <= line("$") |
         \   exe "normal g'\"" |
@@ -22,7 +22,7 @@ if !exists("g:vimrc_loaded")
         set guioptions-=L
         set guioptions-=r
         set guioptions-=m
-        set gfn=Ubuntu\ Mono\ 11
+        set gfn=Monaco\ for\ Powerline\ 9
         set gfw=STHeiti\ 11
         set langmenu=en_US
         set linespace=4
@@ -408,5 +408,6 @@ source ~/.vim/config/omnicpp.vim
 source ~/.vim/config/syntastic.vim
 source ~/.vim/config/indent-color.vim
 source ~/.vim/config/languagetool.vim
+source ~/.vim/config/jedi.vim
 "==========private info==============
 source ~/.vim/private.vim

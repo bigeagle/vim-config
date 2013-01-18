@@ -104,3 +104,12 @@
 [submodule "bundle/vim-cython"]
 	path = bundle/vim-cython
 	url = git://github.com/tshirtman/vim-cython.git
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = git://github.com/groenewege/vim-less.git
+[submodule "bundle/jedi-vim"]
+	path = bundle/jedi-vim
+	url = git://github.com/davidhalter/jedi-vim.git
+[submodule "bundle/scss-syntax"]
+	path = bundle/scss-syntax
+	url = git://github.com/cakebaker/scss-syntax.vim.git
