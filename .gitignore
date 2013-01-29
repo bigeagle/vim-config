@@ -5,4 +5,5 @@ sessions
 *.back
 *.swp
 *~
-bundle/VOoM
+/bundle/VOoM
+/bundle/python-mode
