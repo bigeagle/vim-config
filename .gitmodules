@@ -54,10 +54,6 @@
     path = bundle/vim-easymotion
     url = https://github.com/Lokaltog/vim-easymotion/
     ignore = untracked
-[submodule "bundle/python-mode"]
-    path = bundle/python-mode
-    url = https://github.com/klen/python-mode
-    ignore = untracked
 [submodule "bundle/vimwiki"]
     path = bundle/vimwiki
     url = git://github.com/vim-scripts/vimwiki.git
@@ -113,3 +109,9 @@
 [submodule "bundle/scss-syntax"]
 	path = bundle/scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git
+[submodule "bundle/vim-jinja2"]
+	path = bundle/vim-jinja2
+	url = git://github.com/beyondwords/vim-jinja2.git
+[submodule "bundle/vim-coffeescript"]
+	path = bundle/vim-coffeescript
+	url = git://github.com/kchmck/vim-coffee-script.git
