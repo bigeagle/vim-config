@@ -58,7 +58,7 @@ au BufRead,BufNewFile *.txt setlocal ft=txt
 "鼠标支持
 if has('mouse')
     set mouse=a
-    set selection=exclusive
+    "set selection=exclusive
     set selectmode=mouse,key
 endif
 
@@ -357,6 +357,8 @@ if has("autocmd")
                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \ exe " normal g`\"" |
                 \ endif
+    "auto remove trailing spaces
+    autocmd FileType c,cpp,scala,coffee autocmd BufWritePre <buffer> :%s/\s\+$//e
 endif "has("autocmd")
 
 au BufNewFile *.py call ScriptHeader()
