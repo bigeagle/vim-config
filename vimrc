@@ -15,14 +15,14 @@ endif
 "配色
 " Avoid clearing hilight definition in plugins
 if !exists("g:vimrc_loaded")
-    colorscheme textmate256
+    colorscheme molokai
     if has("gui_running")
         "colorscheme textmate
         set guioptions-=T "隐藏工具栏
         set guioptions-=L
         set guioptions-=r
         set guioptions-=m
-        set gfn=Monaco\ for\ Powerline\ 9
+        set gfn=Monaco\ for\ Powerline\ 11
         set gfw=STHeiti\ 11
         set langmenu=en_US
         set linespace=4

@@ -115,3 +115,6 @@
 [submodule "bundle/vim-jinja2-syntax"]
 	path = bundle/vim-jinja2-syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "bundle/molokai"]
+	path = bundle/molokai
+	url = git@github.com:bigeagle/molokai.git
