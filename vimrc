@@ -401,6 +401,9 @@ let g:session_autosave = 'yes'
 ""==== ack ===
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+""==== indentLine ====
+let g:indentLine_char = '|'
+
 source ~/.vim/config/python-mode.vim
 source ~/.vim/config/tagbar.vim
 source ~/.vim/config/nerdtree.vim

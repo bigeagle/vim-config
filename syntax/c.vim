@@ -324,7 +324,7 @@ endif
 " Define the default highlighting.
 " Only used when an item doesn't have highlighting yet
 
-hi def link cFuntions 		Label
+hi def link cFuntions 		Function
 hi def link cFormat		cSpecial
 hi def link cCppString		cString
 hi def link cCommentL		cComment

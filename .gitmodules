@@ -118,3 +118,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = git@github.com:bigeagle/molokai.git
+[submodule "bundle/indentLine"]
+	path = bundle/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
