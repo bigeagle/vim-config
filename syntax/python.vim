@@ -24,7 +24,7 @@ call pymode#Default('g:pymode_syntax_all', 1)
     syn keyword pythonStatement	with
     syn keyword pythonStatement	def class nextgroup=pythonFunction skipwhite
     syn match   pythonFunction	"[a-zA-Z_][a-zA-Z0-9_]*" display contained nextgroup=pythonFuncParam
-    syn match   pythonFuncParam "(\s*\([a-zA-Z0-9_*=\.]*\s*,\s*\)*[a-zA-Z0-9_*=\.]*\s*)"me=e-1 display contained  contains=pythonFuncSym,pythonFuncSep
+    syn match   pythonFuncParam "(\s*\([a-zA-Z0-9_*=\.\'\"]*\s*,\s*\)*[a-zA-Z0-9_*=\.\'\"]*\s*)"me=e-1 display contained  contains=pythonFuncSym,pythonFuncSep,@pythonStringAll,@pythonNumberAll,pythonBuiltinObj
     syn match   pythonFuncSep   "," display containedin=pythonFuncParam
     syn match   pythonFuncSym   "[(*=]" display contained
     syn keyword pythonRepeat	for while
@@ -85,7 +85,7 @@ call pymode#Default('g:pymode_syntax_all', 1)
 
 " Strings {{{
 " ===========
-
+    syn cluster pythonStringAll contains=pythonString,pythonUniString,pythonRawString,pythonUniRawString,
     syn region pythonString		start=+[bB]\='+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonEscape,pythonEscapeError,@Spell
     syn region pythonString		start=+[bB]\="+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonEscape,pythonEscapeError,@Spell
     syn region pythonString		start=+[bB]\="""+ end=+"""+ keepend contains=pythonEscape,pythonEscapeError,pythonDocTest2,pythonSpaceError,@Spell
@@ -157,7 +157,7 @@ call pymode#Default('g:pymode_syntax_all', 1)
 
 " Numbers {{{
 " ===========
-
+    syn cluster pythonNumberAll contains=pythonHexError,pythonHexNumber,pythonOctNumber,pythonBinNumber,pythonNumber,pythonFloat,pythonOctFloat,pythonBinError
     syn match   pythonHexError	"\<0[xX]\x*[g-zG-Z]\x*[lL]\=\>" display
     syn match   pythonHexNumber	"\<0[xX]\x\+[lL]\=\>" display
     syn match   pythonOctNumber "\<0[oO]\o\+[lL]\=\>" display

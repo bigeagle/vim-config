@@ -60,6 +60,7 @@ if has('mouse')
     set mouse=a
     "set selection=exclusive
     set selectmode=mouse,key
+    set nomousehide
 endif
 
 " 继承前一行的缩进方式，特别适用于多行注释
