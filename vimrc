@@ -415,5 +415,6 @@ source ~/.vim/config/syntastic.vim
 source ~/.vim/config/indent-color.vim
 source ~/.vim/config/languagetool.vim
 source ~/.vim/config/jedi.vim
+source ~/.vim/config/rainbow_brackets.vim
 "==========private info==============
 source ~/.vim/private.vim
