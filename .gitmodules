@@ -82,9 +82,6 @@
     path = bundle/sbt-vim
     url = git://github.com/ktvoelker/sbt-vim.git
     ignore = untracked
-[submodule "bundle/indent-guides"]
-	path = bundle/indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = git://github.com/tyok/ack.vim.git
