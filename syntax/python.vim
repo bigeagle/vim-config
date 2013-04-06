@@ -24,7 +24,7 @@ call pymode#Default('g:pymode_syntax_all', 1)
     syn keyword pythonStatement	with
     syn keyword pythonStatement	def class nextgroup=pythonFunction skipwhite
     syn match   pythonFunction	"[a-zA-Z_][a-zA-Z0-9_]*" display contained nextgroup=pythonFuncParam
-    syn match   pythonFuncParam "(\s*\([a-zA-Z0-9_*=\.\'\"]*\s*,\s*\)*[a-zA-Z0-9_*=\.\'\"]*\s*)"me=e-1 display contained  contains=pythonFuncSym,pythonFuncSep,@pythonStringAll,@pythonNumberAll,pythonBuiltinObj
+    syn match   pythonFuncParam "(\s*\([a-zA-Z0-9_*=\.\'\"]*\s*,\n*\s*\)*[a-zA-Z0-9_*=\.\'\"]*\s*)"me=e-1 display contained  contains=pythonFuncSym,pythonFuncSep,@pythonStringAll,@pythonNumberAll,pythonBuiltinObj
     syn match   pythonFuncSep   "," display containedin=pythonFuncParam
     syn match   pythonFuncSym   "[(*=]" display contained
     syn keyword pythonRepeat	for while

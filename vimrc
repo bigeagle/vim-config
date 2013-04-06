@@ -12,15 +12,11 @@ if has("autocmd")
         \ endif
 endif
 
-if $TMUX == ''
-    set clipboard+=unnamed
-endif
-set clipboard=unnamed
-
 "配色
 " Avoid clearing hilight definition in plugins
 if !exists("g:vimrc_loaded")
     colorscheme molokai
+    "colorscheme textmate256
     if has("gui_running")
         "colorscheme textmate
         set guioptions-=T "隐藏工具栏
