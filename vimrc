@@ -23,8 +23,8 @@ if !exists("g:vimrc_loaded")
         set guioptions-=L
         set guioptions-=r
         set guioptions-=m
-        set gfn=Monaco\ for\ Powerline\ 11
-        set gfw=STHeiti\ 11
+        set gfn=Monaco\ for\ Powerline\ 10
+        set gfw=STHeiti\ 10
         set langmenu=en_US
         set linespace=4
         "set columns=195
@@ -66,9 +66,6 @@ endif
 
 " 继承前一行的缩进方式，特别适用于多行注释
 set autoindent
-
-" 为C程序提供自动缩进
-set smartindent
 
 set modeline
 
@@ -360,7 +357,7 @@ if has("autocmd")
                 \ exe " normal g`\"" |
                 \ endif
     "auto remove trailing spaces
-    autocmd FileType c,cpp,scala,coffee autocmd BufWritePre <buffer> :%s/\s\+$//e
+    autocmd FileType c,cpp,scala,coffee,go,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 endif "has("autocmd")
 
 au BufNewFile *.py call ScriptHeader()
