@@ -80,8 +80,8 @@ function s:Cycle_csdb()
       endif
     endif
     let newcsdbpath = s:Find_in_parent("cscope.out",s:windowdir(),$HOME)
-"    echo "Found cscope.out at: " . newcsdbpath
-"    echo "Windowdir: " . s:windowdir()
+    "echom "Found cscope.out at: " . newcsdbpath
+    "echom "Windowdir: " . s:windowdir()
     if newcsdbpath != "Nothing"
       let b:csdbpath = newcsdbpath
       if !cscope_connection(3, "out", b:csdbpath)
@@ -104,7 +104,7 @@ augroup autoload_cscope
  "au BufEnter *.cc      call <SID>Cycle_csdb() | call <SID>Cycle_macros_menus()
  "au BufUnload *.[chly] call <SID>Unload_csdb() | call <SID>Cycle_macros_menus()
  "au BufUnload *.cc     call <SID>Unload_csdb() | call <SID>Cycle_macros_menus()
-	au FileType c,cpp,java,h.jsp,python call <SID>Cycle_csdb()
+	au FileType c,cpp,java,h call <SID>Cycle_csdb()
 	au BufUnload *.[chly] call <SID>Unload_csdb()
 	au BufUnload *.cc     call <SID>Unload_csdb()
 	au BufUnload *.java   call <SID>Unload_csdb()

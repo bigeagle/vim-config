@@ -410,7 +410,7 @@ source ~/.vim/config/vimwiki.vim
 source ~/.vim/config/cscope.vim
 source ~/.vim/config/omnicpp.vim
 source ~/.vim/config/syntastic.vim
-source ~/.vim/config/indent-color.vim
+source ~/.vim/config/indentLine.vim
 source ~/.vim/config/languagetool.vim
 source ~/.vim/config/jedi.vim
 "source ~/.vim/config/ycm.vim

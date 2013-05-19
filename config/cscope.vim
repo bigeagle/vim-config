@@ -6,8 +6,11 @@ if has("cscope")
     " add any database in current directory
 endif
 
+"list of reference
 nmap <unique> <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"definition
 nmap <unique> <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+"call
 nmap <unique> <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
 nmap <unique> <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <unique> <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
