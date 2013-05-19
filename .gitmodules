@@ -108,7 +108,7 @@
 	url = git://github.com/cakebaker/scss-syntax.vim.git
 [submodule "bundle/vim-coffeescript"]
 	path = bundle/vim-coffeescript
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = git://github.com/CITguy/vim-coffee-script.git
 [submodule "bundle/vim-jinja2-syntax"]
 	path = bundle/vim-jinja2-syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
