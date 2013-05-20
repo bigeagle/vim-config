@@ -10,10 +10,6 @@
     path = bundle/Mark
     url = git://github.com/vim-scripts/Mark--Karkat.git
     ignore = untracked
-[submodule "tagbar"]
-    path = bundle/tagbar
-    url = https://github.com/majutsushi/tagbar.git
-    ignore = untracked
 [submodule "session"]
     path = bundle/session
     url = git://github.com/vim-scripts/session.vim--Odding.git
@@ -133,3 +129,6 @@
 [submodule "bundle/vim-stylus"]
 	path = bundle/vim-stylus
 	url = git://github.com/wavded/vim-stylus.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
