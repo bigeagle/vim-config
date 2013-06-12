@@ -16,6 +16,7 @@ endif
 " Avoid clearing hilight definition in plugins
 if !exists("g:vimrc_loaded")
     colorscheme molokai
+    let g:molokai_original = 1
     "colorscheme textmate256
     if has("gui_running")
         "colorscheme textmate
@@ -81,7 +82,7 @@ endfunction
 "astyle as c and cpp styler
 autocmd FileType c,cpp,h set formatprg=astyle
 
-au FileType c,cpp,h,java,python,javascript setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
+au FileType c,cpp,h,java,python,javascript,go setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
 au FileType diff  setlocal shiftwidth=4 tabstop=4
 au FileType html,css,htmldjango,html,xml setlocal autoindent sw=2 ts=2 sts=2 fdm=manual expandtab
 au FileType javascript setlocal sw=4 ts=4 sts=4 expandtab
@@ -181,9 +182,8 @@ set foldmethod=syntax
 set foldcolumn=0 "设置折叠区域的宽度
 set foldlevel=100
 " 用空格键来开关折叠
-set foldenable
+set nofoldenable
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-set foldlevel=100
 
 
 "程序每次产生一个文件名.
@@ -401,7 +401,17 @@ let g:session_autosave = 'yes'
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 ""==== indentLine ====
-let g:indentLine_char = '|'
+" if ! has("gui_running")
+"     let g:indentLine_char = '|'
+" else
+"     let g:indentLine_char = '¦'
+" endif
+let g:indentLine_char = '¦'
+let g:indentLine_noConcealCursor = 1
+
+""==== latex ========
+let g:tex_conceal=''
+
 
 source ~/.vim/config/python-mode.vim
 source ~/.vim/config/tagbar.vim
@@ -410,7 +420,6 @@ source ~/.vim/config/vimwiki.vim
 source ~/.vim/config/cscope.vim
 source ~/.vim/config/omnicpp.vim
 source ~/.vim/config/syntastic.vim
-source ~/.vim/config/indentLine.vim
 source ~/.vim/config/languagetool.vim
 source ~/.vim/config/jedi.vim
 "source ~/.vim/config/ycm.vim
