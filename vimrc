@@ -412,6 +412,8 @@ let g:indentLine_noConcealCursor = 1
 ""==== latex ========
 let g:tex_conceal=''
 
+"" go
+let g:auto_gofmt=0
 
 source ~/.vim/config/python-mode.vim
 source ~/.vim/config/tagbar.vim

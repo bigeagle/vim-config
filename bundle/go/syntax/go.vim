@@ -83,10 +83,10 @@ hi def link     goComplexes         Type
 " elsewhere. Order matters here.
 syn match       goType              /\<func\>/
 syn match       goDeclaration       /^func\>/ nextgroup=goReciever,goFunction skipwhite
-syn match       goReciever          /([^()]*)\ /   contained  nextgroup=goFunction skipwhite
+syn match       goReciever          /([^()]*)\ / contained nextgroup=goFunction skipwhite
 syn match       goFunction          /[a-zA-Z_][a-zA-Z0-9_]*(/me=e-1 contained
 hi def link     goFunction          Function
-
+hi def link     goReciever          Label
 " Predefined functions and values
 syn keyword     goBuiltins          append cap close complex copy delete imag len
 syn keyword     goBuiltins          make new panic print println real recover
