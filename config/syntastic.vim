@@ -10,6 +10,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['scala'] }
 
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_post_args = "--ignore=E501"
+let g:syntastic_python_flake8_post_args = "--ignore=E501,E226"
 
 map <leader>sc :SyntasticCheck<CR>
