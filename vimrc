@@ -421,6 +421,10 @@ let g:indentLine_noConcealCursor = 1
 ""==== latex ========
 let g:tex_conceal=''
 
+""=== instant markdown ==
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+
 "" go
 let g:auto_gofmt=0
 
