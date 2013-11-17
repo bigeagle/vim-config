@@ -25,9 +25,9 @@ if !exists("g:vimrc_loaded")
         set guioptions-=r
         set guioptions-=m
         set gfn=Sauce\ Code\ Powerline\ 10
-        set gfw=STHeiti\ 10
+        set gfw=STHeiti\ 9
         set langmenu=en_US
-        set linespace=4
+        set linespace=0
         "set columns=195
         "set lines=45
     endif " has
@@ -123,7 +123,8 @@ endif
 " ambiwidth 默认值为 single。在其值为 single 时，
 " 若 encoding 为 utf-8，gvim 显示全角符号时就会
 " 出问题，会当作半角显示。
-set ambiwidth=double
+" update: 这个问题似乎解决了
+"set ambiwidth=double
 set autoread                " 自动重新加载外部修改内容
 set autochdir               " 自动切换当前目录为当前文件所在的目录
 "set spell                   " 拼写检查
@@ -190,8 +191,8 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 set grepprg=grep\ -nH\ $*
 "
 
-"set fillchars=vert:\ ,stl:\ ,stlnc:\
-set fillchars+=stl:\ ,stlnc:\
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+"set fillchars+=stl:\ ,stlnc:\
 
 " 在搜索的时候忽略大小写
 set smartcase
@@ -282,12 +283,15 @@ let g:miniBufExplModSelTarget = 1
 " vim-powerline
 """"""""""""""""""""""""""""""
 " let g:Powerline_symbols='fancy'
+" if !has("gui_running")
 let g:airline_powerline_fonts = 1
+" endif
 let g:airline_theme = "powerlineish"
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#tabline#enabled = 1
 """"""""""""""""""""""""""""""
 " Indent Guide
 """"""""""""""""""""""""""""""
@@ -406,12 +410,12 @@ let g:session_autosave = 'yes'
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 ""==== indentLine ====
-" if ! has("gui_running")
-"     let g:indentLine_char = '|'
-" else
-"     let g:indentLine_char = '¦'
-" endif
-let g:indentLine_char = '¦'
+if has("gui_running")
+    let g:indentLine_char = '|'
+else
+    let g:indentLine_char = '¦'
+endif
+"let g:indentLine_char = '¦'
 let g:indentLine_noConcealCursor = 1
 
 ""==== latex ========

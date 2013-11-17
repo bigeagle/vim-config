@@ -6,7 +6,7 @@ let g:vimwiki_list=[ {'path': "~/Dropbox/Notes", "syntax": "markdown" },
             \ 'template_ext':'.tpl'}]
 
 
-let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+let g:vimwiki_ext2syntax = {'.wkmd': 'markdown'}
 let g:vimwiki_folding = 1
 let g:vimwiki_CJK_length = 1
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
