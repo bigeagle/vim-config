@@ -30,10 +30,6 @@
     path = bundle/nerdtree
     url = git://github.com/scrooloose/nerdtree.git
     ignore = untracked
-[submodule "vim-powerline"]
-    path = bundle/vim-powerline
-    url = git://github.com/Lokaltog/vim-powerline.git
-    ignore = untracked
 [submodule "bundle/syntastic"]
     path = bundle/syntastic
     url = git://github.com/scrooloose/syntastic.git
@@ -81,57 +77,80 @@
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = git://github.com/tyok/ack.vim.git
+    ignore = untracked
 [submodule "bundle/nerdtree-ack.git"]
 	path = bundle/nerdtree-ack.git
 	url = git://github.com/tyok/nerdtree-ack.git
+    ignore = untracked
 [submodule "bundle/LanguageTool"]
 	path = bundle/LanguageTool
 	url = git://github.com/vim-scripts/LanguageTool.git
+    ignore = untracked
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = git://github.com/derekwyatt/vim-scala.git
+    ignore = untracked
 [submodule "bundle/vim-cython"]
 	path = bundle/vim-cython
 	url = git://github.com/tshirtman/vim-cython.git
+    ignore = untracked
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = git://github.com/groenewege/vim-less.git
+    ignore = untracked
 [submodule "bundle/jedi-vim"]
 	path = bundle/jedi-vim
 	url = git://github.com/davidhalter/jedi-vim.git
+    ignore = untracked
 [submodule "bundle/scss-syntax"]
 	path = bundle/scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git
+    ignore = untracked
 [submodule "bundle/vim-coffeescript"]
 	path = bundle/vim-coffeescript
 	url = git://github.com/CITguy/vim-coffee-script.git
+    ignore = untracked
 [submodule "bundle/vim-jinja2-syntax"]
 	path = bundle/vim-jinja2-syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+    ignore = untracked
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = git@github.com:bigeagle/molokai.git
+    ignore = untracked
 [submodule "bundle/indentLine"]
 	path = bundle/indentLine
 	url = git@github.com:Yggdroot/indentLine.git
+    ignore = untracked
 [submodule "bundle/vim-pinpoint"]
 	path = bundle/vim-pinpoint
 	url = https://github.com/fmoralesc/vim-pinpoint.git
+    ignore = untracked
 [submodule "bundle/clang_complete"]
 	path = bundle/clang_complete
 	url = git@github.com:Rip-Rip/clang_complete.git
+    ignore = untracked
 [submodule "bundle/vim-syntax-extra"]
 	path = bundle/vim-syntax-extra
 	url = git://github.com/justinmk/vim-syntax-extra.git
+    ignore = untracked
 [submodule "bundle/vim-jst"]
 	path = bundle/vim-jst
 	url = git://github.com/briancollins/vim-jst.git
+    ignore = untracked
 [submodule "bundle/vim-stylus"]
 	path = bundle/vim-stylus
 	url = git://github.com/wavded/vim-stylus.git
+    ignore = untracked
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+    ignore = untracked
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+    ignore = untracked
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+    ignore = untracked

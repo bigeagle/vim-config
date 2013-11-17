@@ -24,7 +24,7 @@ if !exists("g:vimrc_loaded")
         set guioptions-=L
         set guioptions-=r
         set guioptions-=m
-        set gfn=Monaco\ for\ Powerline\ 10
+        set gfn=Sauce\ Code\ Powerline\ 10
         set gfw=STHeiti\ 10
         set langmenu=en_US
         set linespace=4
@@ -281,8 +281,13 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""
 " vim-powerline
 """"""""""""""""""""""""""""""
-let g:Powerline_symbols='fancy'
-
+" let g:Powerline_symbols='fancy'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "powerlineish"
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 """"""""""""""""""""""""""""""
 " Indent Guide
 """"""""""""""""""""""""""""""
