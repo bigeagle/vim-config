@@ -165,7 +165,7 @@ set wildmenu
 "文字编码加入utf8
 " 设定默认解码
 set fenc=utf-8
-set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
+set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp
 set enc=utf-8
 "let &termencoding=&encoding
 
@@ -291,7 +291,6 @@ let g:airline_theme = "powerlineish"
 "   let g:airline_symbols = {}
 " endif
 " let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#tabline#enabled = 1
 """"""""""""""""""""""""""""""
 " Indent Guide
 """"""""""""""""""""""""""""""
@@ -415,8 +414,8 @@ if has("gui_running")
 else
     let g:indentLine_char = '¦'
 endif
-"let g:indentLine_char = '¦'
-let g:indentLine_noConcealCursor = 1
+let g:indentLine_char = '¦'
+au Filetype vimwiki let g:indentLine_noConcealCursor = 1
 
 ""==== latex ========
 let g:tex_conceal=''
@@ -424,6 +423,9 @@ let g:tex_conceal=''
 ""=== instant markdown ==
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
+
+""
+let g:localvimrc_ask = 0
 
 "" go
 let g:auto_gofmt=0
