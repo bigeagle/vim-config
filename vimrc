@@ -69,6 +69,9 @@ endif
 set autoindent
 
 set modeline
+" 高亮当前行列
+set cursorline
+set cursorcolumn
 
 au FileType c,cpp,h,java,javascript,html,htmldjango setlocal cindent
 
