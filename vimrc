@@ -24,7 +24,7 @@ if !exists("g:vimrc_loaded")
         set guioptions-=L
         set guioptions-=r
         set guioptions-=m
-        set gfn=Sauce\ Code\ Powerline\ 10
+        set gfn=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 10
         set gfw=STHeiti\ 9
         set langmenu=en_US
         set linespace=0
