@@ -369,6 +369,7 @@ if has("autocmd")
                 \ endif
     "auto remove trailing spaces
     autocmd FileType c,cpp,scala,coffee,go,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+    autocmd FileType scala set sw=2 ts=2 sts=2 expandtab
 endif "has("autocmd")
 
 au BufNewFile *.py call ScriptHeader()
