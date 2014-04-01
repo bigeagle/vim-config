@@ -98,10 +98,6 @@
 	path = bundle/vim-less
 	url = git://github.com/groenewege/vim-less.git
     ignore = untracked
-[submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
-	url = git://github.com/davidhalter/jedi-vim.git
-    ignore = untracked
 [submodule "bundle/scss-syntax"]
 	path = bundle/scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git
@@ -125,10 +121,6 @@
 [submodule "bundle/vim-pinpoint"]
 	path = bundle/vim-pinpoint
 	url = https://github.com/fmoralesc/vim-pinpoint.git
-    ignore = untracked
-[submodule "bundle/clang_complete"]
-	path = bundle/clang_complete
-	url = git@github.com:Rip-Rip/clang_complete.git
     ignore = untracked
 [submodule "bundle/vim-syntax-extra"]
 	path = bundle/vim-syntax-extra
@@ -166,3 +158,6 @@
 [submodule "bundle/latex-box"]
 	path = bundle/latex-box
 	url = git@github.com:LaTeX-Box-Team/LaTeX-Box.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git

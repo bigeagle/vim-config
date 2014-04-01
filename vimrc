@@ -443,7 +443,7 @@ source ~/.vim/config/omnicpp.vim
 source ~/.vim/config/syntastic.vim
 source ~/.vim/config/languagetool.vim
 source ~/.vim/config/jedi.vim
-"source ~/.vim/config/ycm.vim
+source ~/.vim/config/ycm.vim
 source ~/.vim/config/rainbow_brackets.vim
 source ~/.vim/config/latex-box.vim
 "==========private info==============
