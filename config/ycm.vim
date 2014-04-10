@@ -6,4 +6,4 @@ let g:ycm_min_num_of_chars_for_completion = 5
 let g:ycm_auto_trigger = 0
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-
+nnoremap <leader>jd :YcmCompleter GoTo<CR>

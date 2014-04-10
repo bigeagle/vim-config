@@ -159,3 +159,6 @@
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
+[submodule "bundle/LeaderF"]
+	path = bundle/LeaderF
+	url = git@github.com:Yggdroot/LeaderF.git
