@@ -162,3 +162,6 @@
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "bundle/calendar"]
+	path = bundle/calendar
+	url = git@github.com:mattn/calendar-vim.git

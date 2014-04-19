@@ -1,5 +1,5 @@
-let g:vimwiki_list=[ {'path': "~/Dropbox/Notes", "syntax": "markdown" },
-            \ {'path':'~/Dropbox/vimwiki',
+let g:vimwiki_list=[ {'path': "~/Seafile/Personal/Notes", "syntax": "markdown" },
+            \ {'path':'~/Seafile/Personal/vimwiki',
             \ 'path_html':'/srv/http/wiki/',
             \ 'template_path':'/srv/http/wiki/',
             \   'template_default':'main_template',
