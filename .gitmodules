@@ -141,24 +141,40 @@
 [submodule "bundle/vim-instant-markdown"]
 	path = bundle/vim-instant-markdown
 	url = https://github.com/suan/vim-instant-markdown.git
+    ignore = untracked
 [submodule "bundle/vim-localvimrc"]
 	path = bundle/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
+    ignore = untracked
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
+    ignore = untracked
 [submodule "bundle/latex-box"]
 	path = bundle/latex-box
 	url = git@github.com:LaTeX-Box-Team/LaTeX-Box.git
+    ignore = untracked
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+    ignore = untracked
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
+    ignore = untracked
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
+    ignore = untracked
 [submodule "bundle/LeaderF"]
 	path = bundle/LeaderF
 	url = git@github.com:Yggdroot/LeaderF.git
+    ignore = untracked
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+    ignore = untracked
+[submodule "bundle/calendar"]
+	path = bundle/calendar
+	url = git@github.com:mattn/calendar-vim.git
+    ignore = untracked
