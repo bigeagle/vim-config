@@ -178,3 +178,6 @@
 	path = bundle/calendar
 	url = git@github.com:mattn/calendar-vim.git
     ignore = untracked
+[submodule "bundle/mustache"]
+	path = bundle/mustache
+	url = git://github.com/mustache/vim-mustache-handlebars.git
