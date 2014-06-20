@@ -86,6 +86,7 @@ endfunction
 autocmd FileType c,cpp,h set formatprg=astyle
 
 au FileType c,cpp,h,java,python,javascript,go setlocal cinoptions=:0,g0,(0,w1 shiftwidth=4 tabstop=4 softtabstop=4 cc=80
+au FileType c,cpp,h,go setlocal noexpandtab
 au FileType diff  setlocal shiftwidth=4 tabstop=4
 au FileType html,css,htmldjango,html,xml setlocal autoindent sw=2 ts=2 sts=2 fdm=manual expandtab
 au FileType javascript setlocal sw=4 ts=4 sts=4 expandtab
