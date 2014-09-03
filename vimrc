@@ -107,16 +107,16 @@ au BufEnter /usr/include/g++-3/*  setf cpp
 " Setting for files following the GNU coding standard
 au BufEnter /usr/*                call GnuIndent()
 
-function! RemoveTrailingSpace()
-    if $VIM_HATE_SPACE_ERRORS != '0' &&
-                \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'vim')
-        normal m`
-        silent! :%s/\s\+$//e
-        normal ``
-    endif
-endfunction
-" Remove trailing spaces for C/C++ and Vim files
-au BufWritePre *                  call RemoveTrailingSpace()
+" function! RemoveTrailingSpace()
+"     if $VIM_HATE_SPACE_ERRORS != '0' &&
+"                 \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'vim')
+"         normal m`
+"         silent! :%s/\s\+$//e
+"         normal ``
+"     endif
+" endfunction
+" " Remove trailing spaces for C/C++ and Vim files
+" au BufWritePre *                  call RemoveTrailingSpace()
 
 if &term=="xterm"
     set t_Co=8
@@ -369,7 +369,7 @@ if has("autocmd")
                 \ exe " normal g`\"" |
                 \ endif
     "auto remove trailing spaces
-    autocmd FileType c,cpp,scala,coffee,go,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+    autocmd FileType scala,java,coffee,go,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
     autocmd FileType scala set sw=2 ts=2 sts=2 expandtab
 endif "has("autocmd")
 
