@@ -58,10 +58,6 @@
     path = bundle/sbt-vim
     url = git://github.com/ktvoelker/sbt-vim.git
     ignore = untracked
-[submodule "bundle/ack.vim"]
-	path = bundle/ack.vim
-	url = git://github.com/tyok/ack.vim.git
-    ignore = untracked
 [submodule "bundle/nerdtree-ack.git"]
 	path = bundle/nerdtree-ack.git
 	url = git://github.com/tyok/nerdtree-ack.git
@@ -145,10 +141,6 @@
 [submodule "bundle/latex-box"]
 	path = bundle/latex-box
 	url = git@github.com:LaTeX-Box-Team/LaTeX-Box.git
-    ignore = untracked
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe.git
     ignore = untracked
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
