@@ -1,3 +1,8 @@
+let g:pymode = 1
+let g:pymode_trim_whitespaces = 1
+let g:pymode_python = 'python'
+
+let g:pymode_lint = 0
 let g:pymode_lint_write = 0
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
@@ -38,4 +43,5 @@ let g:pymode_virtualenv = 1
 let g:pymode_options_indent = 1
 let g:pymode_options_other = 1
 
-let python_highlight_all = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_print_as_function = 1
