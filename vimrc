@@ -212,16 +212,6 @@ set incsearch
 set diffopt+=vertical
 "" ]c 跳到上一个冲突处, ]c跳到下一个冲突处, dp = :diffput , :Gwrite 保存
 
-"LaTex Suite"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! SyncTexForward()
-    let execstr = "silent !okular --unique %:p:r.pdf\#src:".line(".")."%:p &"
-    exec execstr
-endfunction
-
-let g:tex_flavor= "latex"
-""自动载入latex-suite菜单
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """Echo Func 设置"""""""""""""""""""""""""""""""""""""""""
 let g:EchoFuncLangsUsed = ["c","cpp"]
@@ -368,8 +358,8 @@ if has("autocmd")
                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \ exe " normal g`\"" |
                 \ endif
-    "auto remove trailing spaces
-    autocmd FileType scala,java,coffee,go,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+    " auto remove trailing spaces
+    " autocmd FileType scala,java,coffee,go,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
     autocmd FileType scala set sw=2 ts=2 sts=2 expandtab
 endif "has("autocmd")
 
@@ -398,14 +388,8 @@ function ScriptHeader()
 endfunction
 
 
-"=======================================================
-"twitter vim
-let twitvim_enable_python = 1
-let twitvim_browser_cmd = 'google-chrome'
-let twitvim_old_retweet = 1
-
 ""======== HTML JS =================
-let g:js_indent_log = 0
+" let g:js_indent_log = 0
 
 ""=== Session ===
 let g:session_autosave = 'yes'
