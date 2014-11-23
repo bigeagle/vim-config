@@ -138,10 +138,6 @@
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
     ignore = untracked
-[submodule "bundle/latex-box"]
-	path = bundle/latex-box
-	url = git@github.com:LaTeX-Box-Team/LaTeX-Box.git
-    ignore = untracked
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
@@ -180,3 +176,7 @@
 [submodule "bundle/vim-toml"]
 	path = bundle/vim-toml
 	url = https://github.com/cespare/vim-toml.git
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = https://github.com/lervag/vim-latex.git
+    ignore = untracked
