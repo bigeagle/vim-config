@@ -430,7 +430,7 @@ source ~/.vim/config/languagetool.vim
 source ~/.vim/config/ycm.vim
 source ~/.vim/config/ultisnips.vim
 source ~/.vim/config/rainbow_brackets.vim
-source ~/.vim/config/latex-box.vim
+source ~/.vim/config/latex.vim
 source ~/.vim/config/vim-go.vim
 source ~/.vim/config/pandoc.vim
 "==========private info==============
